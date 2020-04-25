@@ -1,13 +1,14 @@
 import React from 'react';
 
+import Field from '@root/containers/Field';
+
 import s from './styles.scss';
 
 const App = () => {
   return (
     <div className={s.app}>
       <div className={s.container}>
-        <h1>Level 0</h1>
-        <p>React, TS and nothing more</p>
+        <Field />
       </div>
     </div>
   );
