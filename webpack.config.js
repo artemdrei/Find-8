@@ -91,8 +91,6 @@ const config = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@root': path.resolve(__dirname, './src'),
-      '@api': path.resolve(__dirname, './src/api'),
-      '@store': path.resolve(__dirname, './src/store'),
     },
   },
   plugins: getPlugins(),
