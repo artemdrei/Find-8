@@ -12,15 +12,17 @@ const Field = () => {
 
   return (
     <div className={s.field}>
-      {matrix.map((row, i) => {
-        return (
-          <div className={s.row} key={'row' + i}>
-            {row.map((num: number, j) => (
-              <div className={s.cell} key={'cell' + j} data-content={num}></div>
-            ))}
-          </div>
-        );
-      })}
+      <div className={s.wrapper}>
+        {matrix.map((row, i) => {
+          return (
+            <div className={s.row} key={'row' + i}>
+              {row.map((num: number, j) => (
+                <div className={s.cell} key={'cell' + j} data-content={num}></div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
