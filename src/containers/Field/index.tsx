@@ -10,9 +10,19 @@ const Field = () => {
   const coreMatrix = generateMatrix(ROWS, CELLS, DEFAULT_VALUE);
   const matrix = setSeekedValue(coreMatrix, ROWS, CELLS, SEEKED_VALUE);
 
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { content } = (e.target as HTMLDivElement).dataset;
+
+    if (content === SEEKED_VALUE.toString()) {
+      console.log('SUCCESS');
+    } else {
+      console.log('ERRROR');
+    }
+  };
+
   return (
     <div className={s.field}>
-      <div className={s.wrapper}>
+      <div className={s.wrapper} onClick={handleClick}>
         {matrix.map((row, i) => {
           return (
             <div className={s.row} key={'row' + i}>

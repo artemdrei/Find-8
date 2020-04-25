@@ -10,7 +10,7 @@ export const setSeekedValue = (
   matrix: TMatrix,
   cells: number,
   rows: number,
-  seekedValue: number
+  seekedValue: number | string
 ): TMatrix => {
   const x = getRandomInt(0, cells);
   const y = getRandomInt(0, rows);
