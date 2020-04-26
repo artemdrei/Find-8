@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { IProps } from './types';
+
 import { ROWS, CELLS, DEFAULT_VALUE, SEEKED_VALUE } from '@root/config';
 import { generateMatrix } from './utils/generateMatrix';
 import { setSeekedValue } from './utils/setSeekedValue';
 
 import s from './styles.scss';
 
-const Field = () => {
+const Field: React.FC<IProps> = ({ onWin }) => {
   const coreMatrix = generateMatrix(ROWS, CELLS, DEFAULT_VALUE);
   const matrix = setSeekedValue(coreMatrix, ROWS, CELLS, SEEKED_VALUE);
 
@@ -15,6 +17,7 @@ const Field = () => {
 
     if (content === SEEKED_VALUE.toString()) {
       console.log('SUCCESS');
+      onWin();
     } else {
       console.log('ERRROR');
     }
