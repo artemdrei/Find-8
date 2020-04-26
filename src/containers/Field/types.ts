@@ -1,7 +1,7 @@
 export type TMatrix = number[][];
 
 export interface IProps {
-  isStarted: boolean;
+  isStarted: null | boolean;
   setIsStarted: () => void;
   onWin: () => void;
 }

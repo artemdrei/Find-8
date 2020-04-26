@@ -27,7 +27,7 @@ const Field: React.FC<IProps> = ({ isStarted, setIsStarted, onWin }) => {
 
   return (
     <div className={s.field}>
-      {!isStarted ? (
+      {isStarted === null ? (
         <Tutorial setIsStarted={setIsStarted} />
       ) : (
         <div onClick={handleClick}>

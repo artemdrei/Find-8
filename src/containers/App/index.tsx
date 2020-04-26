@@ -8,7 +8,7 @@ import s from './styles.scss';
 
 const App = () => {
   const [winModalIsShown, setWinModalIsShown] = useState(false);
-  const [isStarted, setIsStarted] = useState(false);
+  const [isStarted, setIsStarted] = useState<null | boolean>(null);
 
   return (
     <>
@@ -18,7 +18,7 @@ const App = () => {
           setIsStarted={() => setIsStarted(true)}
           onWin={() => setWinModalIsShown(true)}
         />
-        <ActionPanel setIsStarted={() => setIsStarted(true)} />
+        <ActionPanel isStarted={isStarted} setIsStarted={() => setIsStarted(!isStarted)} />
       </div>
       <CongratsModal isShown={winModalIsShown} onHide={() => setWinModalIsShown(false)} />
     </>

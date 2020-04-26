@@ -10,14 +10,14 @@ const Tutorial: React.FC<IProps> = ({ setIsStarted }) => {
   return (
     <div className={s.tutorial}>
       <h2 className={s.title}>Find 8</h2>
-      <p>One character is different from the rest.</p>
-      <p>
+      <div>One character is different from the rest.</div>
+      <div>
         Click{' '}
         <Button variant="link" onClick={setIsStarted} className={s.playBtn}>
           Play
         </Button>{' '}
         and try to find it as quickly as possible
-      </p>
+      </div>
     </div>
   );
 };
