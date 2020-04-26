@@ -1,3 +1,5 @@
+@import '../../assets/styles/index.scss';
+
 .field {
   display: flex;
   align-items: center;
@@ -7,6 +9,16 @@
 
 .row {
   display: flex;
+
+  &:first-child {
+    border-top: 1px solid $commonGray-A200;
+  }
+
+  .cell {
+    &:first-child {
+      border-left: 1px solid $commonGray-A200;
+    }
+  }
 }
 
 .cell {
@@ -15,7 +27,8 @@
   align-items: center;
   width: 30px;
   height: 30px;
-  border: 1px solid #000;
+  border-right: 1px solid $commonGray-A200;
+  border-bottom: 1px solid $commonGray-A200;
   text-align: center;
 
   &::before {
