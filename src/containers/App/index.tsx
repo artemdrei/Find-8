@@ -7,16 +7,21 @@ import CongratsModal from '@root/containers/Modals/Win';
 import s from './styles.scss';
 
 const App = () => {
-  const [winModalIsShow, setWinModalIsShow] = useState(false);
+  const [winModalIsShown, setWinModalIsShown] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
 
   return (
-    <div className={s.app}>
+    <>
       <div className={s.container}>
-        <Field onWin={() => setWinModalIsShow(true)} />
-        <ActionPanel />
+        <Field
+          isStarted={isStarted}
+          setIsStarted={() => setIsStarted(true)}
+          onWin={() => setWinModalIsShown(true)}
+        />
+        <ActionPanel setIsStarted={() => setIsStarted(true)} />
       </div>
-      <CongratsModal isShown={winModalIsShow} onHide={() => setWinModalIsShow(false)} />
-    </div>
+      <CongratsModal isShown={winModalIsShown} onHide={() => setWinModalIsShown(false)} />
+    </>
   );
 };
 

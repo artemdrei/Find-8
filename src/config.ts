@@ -1,4 +1,4 @@
-export const ROWS = 3;
-export const CELLS = 3;
+export const ROWS = 6;
+export const CELLS = 6;
 export const DEFAULT_VALUE = '😀';
 export const SEEKED_VALUE = '💩';

@@ -1,11 +1,17 @@
 import React from 'react';
 
+import { IProps } from './types';
+
+import Button from 'react-bootstrap/Button';
+
 import s from './styles.scss';
 
-const ActionPanel = () => {
+const ActionPanel: React.FC<IProps> = ({ setIsStarted }) => {
   return (
     <div className={s.actionPanel}>
-      <button>Play</button>
+      <Button className={s.btn} variant="primary" onClick={setIsStarted}>
+        Play
+      </Button>
     </div>
   );
 };

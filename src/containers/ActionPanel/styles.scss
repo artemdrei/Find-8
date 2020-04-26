@@ -1,4 +1,12 @@
+@import '../../assets/styles/index.scss';
+
 .actionPanel {
   width: 20%;
-  background-color: lightgreen;
+  padding: 20px 12px;
+  border-left: 1px solid $commonGray-A200;
+}
+
+.btn {
+  width: 100%;
+  font-weight: 700;
 }
