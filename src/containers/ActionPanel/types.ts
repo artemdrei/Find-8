@@ -1,4 +1,4 @@
 export interface IProps {
-  setIsStarted: () => void;
-  isStarted: null | boolean;
+  time: number;
+  setTime: (time: number) => void;
 }

@@ -10,7 +10,7 @@ import Tutorial from '@root/containers/Tutorial';
 
 import s from './styles.scss';
 
-const Field: React.FC<IProps> = ({ isStarted, setIsStarted, onWin }) => {
+const Field: React.FC<IProps> = ({ isStarted, setTime, onWin }) => {
   const coreMatrix = generateMatrix(ROWS, CELLS, DEFAULT_VALUE);
   const matrix = setSeekedValue(coreMatrix, ROWS, CELLS, SEEKED_VALUE);
 
@@ -28,7 +28,7 @@ const Field: React.FC<IProps> = ({ isStarted, setIsStarted, onWin }) => {
   return (
     <div className={s.field}>
       {isStarted === null ? (
-        <Tutorial setIsStarted={setIsStarted} />
+        <Tutorial setTime={setTime} />
       ) : (
         <div onClick={handleClick}>
           {matrix.map((row, i) => {

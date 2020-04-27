@@ -6,11 +6,16 @@ import Button from 'react-bootstrap/Button';
 
 import s from './styles.scss';
 
-const ActionPanel: React.FC<IProps> = ({ isStarted, setIsStarted }) => {
-  const startBtnLabel = isStarted ? 'Reset' : 'Play';
+const ActionPanel: React.FC<IProps> = ({ time, setTime }) => {
+  const startBtnLabel = time ? 'Reset' : 'Play';
+
+  const onPlay = () => {
+    setTime(+new Date());
+  };
+
   return (
     <div className={s.actionPanel}>
-      <Button className={s.btn} variant="primary" onClick={setIsStarted}>
+      <Button className={s.btn} variant="primary" onClick={onPlay}>
         {startBtnLabel}
       </Button>
     </div>
