@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IProps } from './types';
 
-import { ROWS, CELLS, DEFAULT_VALUE, SEEKED_VALUE } from '@root/config';
+import { CONFIG } from '@root/config';
 import { generateMatrix } from './utils/generateMatrix';
 import { setSeekedValue } from './utils/setSeekedValue';
 
@@ -10,14 +10,16 @@ import Tutorial from '@root/containers/Tutorial';
 
 import s from './styles.scss';
 
-const Field: React.FC<IProps> = ({ isStarted, setTime, onWin }) => {
-  const coreMatrix = generateMatrix(ROWS, CELLS, DEFAULT_VALUE);
-  const matrix = setSeekedValue(coreMatrix, ROWS, CELLS, SEEKED_VALUE);
+const Field: React.FC<IProps> = ({ isStarted, level, setTime, onWin }) => {
+  const { rows, cells } = CONFIG.levels[level];
+  const { defaultValue, seekedValue } = CONFIG.field;
+  const coreMatrix = generateMatrix(rows, cells, defaultValue);
+  const matrix = setSeekedValue(coreMatrix, rows, cells, seekedValue);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const { content } = (e.target as HTMLDivElement).dataset;
 
-    if (content === SEEKED_VALUE.toString()) {
+    if (content === seekedValue.toString()) {
       console.log('SUCCESS');
       onWin();
     } else {
