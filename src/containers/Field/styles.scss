@@ -5,10 +5,25 @@
   align-items: center;
   justify-content: center;
   width: 80%;
+  animation: fadeIn 200ms ease-in;
+}
+
+.fadeIn {
+  animation: fadeIn 200ms ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .row {
   display: flex;
+  animation: fadeIn 300ms;
 
   &:first-child {
     border-top: 1px solid $commonGray-A200;

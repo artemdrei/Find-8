@@ -6,7 +6,6 @@ import { TLevel } from '@root/typings';
 
 import Field from '@root/containers/Field';
 import ActionPanel from '@root/containers/ActionPanel';
-import CongratsModal from '@root/containers/Modals/Win';
 
 import s from './styles.scss';
 
@@ -14,54 +13,41 @@ const App = () => {
   const [time, setTime] = useState(0);
   const [seekDuration, setSeekDuration] = useState(0);
   const [level, setLevel] = useState<TLevel>('easy');
-  const [winModalIsShown, setWinModalIsShown] = useState(false);
 
   let prevTime = usePrevious(time);
 
+  // Set seek duration and reset starting time
   useEffect(() => {
-    if (time) {
+    if (time && prevTime) {
       const duration = time - prevTime;
       setSeekDuration(duration);
+      setTime(0);
     }
   }, [time]);
 
-  // Reset on close Win modal
-  useEffect(() => {
-    if (winModalIsShown === false) {
-      prevTime = 0;
-      setTime(0);
-      setSeekDuration(0);
-    }
-  }, [winModalIsShown, level]);
-
   const onWin = () => {
     setTime(+new Date());
-    setWinModalIsShown(true);
   };
 
   return (
     <>
       <div className={s.container}>
         <Field
+          time={time}
           level={level}
-          isStarted={time === 0 ? null : !!time}
+          seekDuration={seekDuration}
+          setLevel={setLevel}
+          setSeekDuration={setSeekDuration}
           setTime={(date: number) => setTime(date)}
           onWin={onWin}
         />
         <ActionPanel
-          time={time}
           level={level}
+          time={time}
           setTime={(time: number) => setTime(time)}
           setLevel={setLevel}
         />
       </div>
-      <CongratsModal
-        isShown={winModalIsShown}
-        level={level}
-        setLevel={setLevel}
-        seekDuration={seekDuration}
-        onHide={() => setWinModalIsShown(false)}
-      />
     </>
   );
 };

@@ -7,10 +7,19 @@ import { generateMatrix } from './utils/generateMatrix';
 import { setSeekedValue } from './utils/setSeekedValue';
 
 import Tutorial from '@root/containers/Tutorial';
+import Win from '@root/containers/Win';
 
 import s from './styles.scss';
 
-const Field: React.FC<IProps> = ({ isStarted, level, setTime, onWin }) => {
+const Field: React.FC<IProps> = ({
+  level,
+  time,
+  seekDuration,
+  setTime,
+  setLevel,
+  setSeekDuration,
+  onWin,
+}) => {
   const { rows, cells } = CONFIG.levels[level];
   const { defaultValue, seekedValue } = CONFIG.field;
   const coreMatrix = generateMatrix(rows, cells, defaultValue);
@@ -29,9 +38,24 @@ const Field: React.FC<IProps> = ({ isStarted, level, setTime, onWin }) => {
 
   return (
     <div className={s.field}>
-      {isStarted === null ? (
-        <Tutorial setTime={setTime} />
-      ) : (
+      {/* Win Page*/}
+      {seekDuration ? (
+        <div className={s.fadeIn}>
+          <Win
+            seekDuration={seekDuration}
+            level={level}
+            setLevel={setLevel}
+            setTime={setTime}
+            setSeekDuration={setSeekDuration}
+          />
+        </div>
+      ) : null}
+
+      {/* Tutorial page */}
+      {time === 0 && !seekDuration ? <Tutorial setTime={setTime} /> : null}
+
+      {/* Matrix page */}
+      {time ? (
         <div onClick={handleClick}>
           {matrix.map((row, i) => {
             return (
@@ -43,7 +67,7 @@ const Field: React.FC<IProps> = ({ isStarted, level, setTime, onWin }) => {
             );
           })}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
