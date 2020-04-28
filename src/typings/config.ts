@@ -10,6 +10,7 @@ type TLevels = {
     label: string;
     rows: number;
     cells: number;
+    nextLevel: string;
   };
 };
 export interface TConfig {

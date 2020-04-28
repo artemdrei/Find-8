@@ -13,7 +13,7 @@ import s from './styles.scss';
 const App = () => {
   const [time, setTime] = useState(0);
   const [seekDuration, setSeekDuration] = useState(0);
-  const [level, setLevel] = useState<TLevel>('hard');
+  const [level, setLevel] = useState<TLevel>('easy');
   const [winModalIsShown, setWinModalIsShown] = useState(false);
 
   let prevTime = usePrevious(time);
@@ -57,6 +57,8 @@ const App = () => {
       </div>
       <CongratsModal
         isShown={winModalIsShown}
+        level={level}
+        setLevel={setLevel}
         seekDuration={seekDuration}
         onHide={() => setWinModalIsShown(false)}
       />

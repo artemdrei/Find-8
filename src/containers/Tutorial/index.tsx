@@ -5,6 +5,7 @@ import { IProps } from './types';
 import Button from 'react-bootstrap/Button';
 
 import s from './styles.scss';
+import gs from '@root/assets/styles/index.scss';
 
 const Tutorial: React.FC<IProps> = ({ setTime }) => {
   return (
@@ -13,7 +14,7 @@ const Tutorial: React.FC<IProps> = ({ setTime }) => {
       <div>One character is different from the rest.</div>
       <div>
         Click{' '}
-        <Button variant="link" onClick={() => setTime(+new Date())} className={s.playBtn}>
+        <Button variant="link" onClick={() => setTime(+new Date())} className={gs.btnLink}>
           Play
         </Button>{' '}
         and try to find it as quickly as possible

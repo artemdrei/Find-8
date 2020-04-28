@@ -18,12 +18,12 @@ const Level: React.FC<IProps> = ({ level, setLevel }) => {
         <div key={`custom-inline-${key}`}>
           <Form.Check
             custom
-            defaultChecked={key === level}
+            id={key}
+            value={key}
+            checked={key === level}
             label={key}
             type="radio"
             name="levels"
-            value={key}
-            id={key}
             onChange={handleChange}
           />
         </div>
