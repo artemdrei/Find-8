@@ -61,6 +61,7 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
       ) : null}
 
       {/* Matrix field */}
+      {/* TODO: Move into component */}
       {!showTutorial && startTime && !endTime ? (
         <div onClick={handleClick}>
           {matrix.map((row, i) => {
