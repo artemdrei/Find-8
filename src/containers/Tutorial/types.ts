@@ -1,3 +1,3 @@
 export interface IProps {
-  setTime: (date: number) => void;
+  setStartTime: (date: number) => void;
 }

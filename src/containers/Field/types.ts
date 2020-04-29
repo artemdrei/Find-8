@@ -4,10 +4,9 @@ export type TMatrix = number[][];
 
 export interface IProps {
   level: TLevel;
-  seekDuration: number;
-  time: number;
+  endTime: number;
+  startTime: number;
   setLevel: (level: TLevel) => void;
-  setTime: (date: number) => void;
-  setSeekDuration: (date: number) => void;
-  onWin: () => void;
+  setStartTime: (date: number) => void;
+  setEndTime: (date: number) => void;
 }

@@ -1,9 +1,10 @@
 import { TLevel } from '@root/typings';
 
 export interface IProps {
-  seekDuration: number;
+  startTime: number;
+  endTime: number;
   level: TLevel;
   setLevel: (level: TLevel) => void;
-  setTime: (date: number) => void;
-  setSeekDuration: (date: number) => void;
+  setStartTime: (date: number) => void;
+  setEndTime: (date: number) => void;
 }

@@ -7,11 +7,12 @@ import Levels from './Levels';
 
 import s from './styles.scss';
 
-const ActionPanel: React.FC<IProps> = ({ time, level, setTime, setLevel }) => {
-  const startBtnLabel = time ? 'Reset' : 'Play';
+const ActionPanel: React.FC<IProps> = ({ endTime, level, setStartTime, setLevel, setEndTime }) => {
+  const startBtnLabel = endTime === 0 ? 'Play' : 'Retry';
 
   const onPlay = () => {
-    setTime(+new Date());
+    setStartTime(+new Date());
+    setEndTime(0);
   };
 
   return (

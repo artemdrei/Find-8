@@ -9,7 +9,9 @@ import Button from 'react-bootstrap/Button';
 
 import gs from '@root/assets/styles/index.scss';
 
-const Congrats: React.FC<IProps> = ({ seekDuration, level, setLevel, setTime, setSeekDuration }) => {
+// TODO:: move duration counter in separate function
+const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setStartTime, setEndTime }) => {
+  const seekDuration = endTime - startTime;
   const minutes = Math.floor(seekDuration / 60000);
   const seconds = +((seekDuration % 60000) / 1000).toFixed(2);
   const time = minutes
@@ -22,13 +24,13 @@ const Congrats: React.FC<IProps> = ({ seekDuration, level, setLevel, setTime, se
   const handleNextLevel = () => {
     const nextLevel = CONFIG.levels[level].nextLevel as TLevel;
     setLevel(nextLevel);
-    setTime(+new Date());
-    setSeekDuration(0);
+    setStartTime(+new Date());
+    setEndTime(0);
   };
 
   const handleRetry = () => {
-    setTime(+new Date());
-    setSeekDuration(0);
+    setStartTime(+new Date());
+    setEndTime(0);
   };
 
   return (

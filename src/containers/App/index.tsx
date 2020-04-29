@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { usePrevious } from './hooks/usePrevious';
-
 import { TLevel } from '@root/typings';
 
 import Field from '@root/containers/Field';
@@ -10,41 +8,35 @@ import ActionPanel from '@root/containers/ActionPanel';
 import s from './styles.scss';
 
 const App = () => {
-  const [time, setTime] = useState(0);
-  const [seekDuration, setSeekDuration] = useState(0);
+  const [startTime, setStartTime] = useState(0);
+  const [endTime, setEndTime] = useState(0);
   const [level, setLevel] = useState<TLevel>('easy');
 
-  let prevTime = usePrevious(time);
-
-  // Set seek duration and reset starting time
+  // Set startTime and reset other params
   useEffect(() => {
-    if (time && prevTime) {
-      const duration = time - prevTime;
-      setSeekDuration(duration);
-      setTime(0);
-    }
-  }, [time]);
+    setEndTime(0);
+  }, [startTime]);
 
-  const onWin = () => {
-    setTime(+new Date());
-  };
+  useEffect(() => {
+    setStartTime(+new Date());
+  }, [level]);
 
   return (
     <>
       <div className={s.container}>
         <Field
-          time={time}
           level={level}
-          seekDuration={seekDuration}
+          startTime={startTime}
+          endTime={endTime}
           setLevel={setLevel}
-          setSeekDuration={setSeekDuration}
-          setTime={(date: number) => setTime(date)}
-          onWin={onWin}
+          setStartTime={(date: number) => setStartTime(date)}
+          setEndTime={(date: number) => setEndTime(date)}
         />
         <ActionPanel
           level={level}
-          time={time}
-          setTime={(time: number) => setTime(time)}
+          endTime={endTime}
+          setStartTime={(time: number) => setStartTime(time)}
+          setEndTime={(date: number) => setEndTime(date)}
           setLevel={setLevel}
         />
       </div>

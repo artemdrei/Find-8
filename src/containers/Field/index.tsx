@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { IProps } from './types';
 
@@ -11,15 +11,20 @@ import Win from '@root/containers/Win';
 
 import s from './styles.scss';
 
-const Field: React.FC<IProps> = ({
-  level,
-  time,
-  seekDuration,
-  setTime,
-  setLevel,
-  setSeekDuration,
-  onWin,
-}) => {
+let initialStartTime = 0;
+const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStartTime, setEndTime }) => {
+  const [showTutorial, setShowTutorial] = useState(false);
+
+  // TODO:: refactoring later
+  useEffect(() => {
+    if (initialStartTime === 0) {
+      setShowTutorial(true);
+      initialStartTime = startTime;
+    } else {
+      setShowTutorial(false);
+    }
+  }, [startTime]);
+
   const { rows, cells } = CONFIG.levels[level];
   const { defaultValue, seekedValue } = CONFIG.field;
   const coreMatrix = generateMatrix(rows, cells, defaultValue);
@@ -30,7 +35,7 @@ const Field: React.FC<IProps> = ({
 
     if (content === seekedValue.toString()) {
       console.log('SUCCESS');
-      onWin();
+      setEndTime(+new Date());
     } else {
       console.log('ERRROR');
     }
@@ -38,24 +43,25 @@ const Field: React.FC<IProps> = ({
 
   return (
     <div className={s.field}>
-      {/* Win Page*/}
-      {seekDuration ? (
+      {/* Tutorial */}
+      {showTutorial ? <Tutorial setStartTime={setStartTime} /> : null}
+
+      {/* Win*/}
+      {endTime ? (
         <div className={s.fadeIn}>
           <Win
-            seekDuration={seekDuration}
             level={level}
+            startTime={startTime}
+            endTime={endTime}
             setLevel={setLevel}
-            setTime={setTime}
-            setSeekDuration={setSeekDuration}
+            setStartTime={setStartTime}
+            setEndTime={setEndTime}
           />
         </div>
       ) : null}
 
-      {/* Tutorial page */}
-      {time === 0 && !seekDuration ? <Tutorial setTime={setTime} /> : null}
-
-      {/* Matrix page */}
-      {time ? (
+      {/* Matrix field */}
+      {!showTutorial && startTime && !endTime ? (
         <div onClick={handleClick}>
           {matrix.map((row, i) => {
             return (
