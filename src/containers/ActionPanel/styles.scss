@@ -1,12 +1,33 @@
-@import '../../assets/styles/index.scss';
+@import '../../assets/styles/colors.scss';
 
 .actionPanel {
   width: 20%;
   padding: 20px 12px;
   border-left: 1px solid $commonGray-A200;
+
+  [class^='custom-control'] {
+    margin-bottom: 2px;
+
+    label {
+      width: 100%;
+    }
+  }
 }
 
 .btn {
   width: 100%;
   font-weight: 700;
+}
+
+.playBtn {
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  margin-top: 20px;
+  padding-top: 8px;
+  border-top: 1px solid $commonGray-A200;
 }

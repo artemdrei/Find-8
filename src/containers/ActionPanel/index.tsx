@@ -17,9 +17,10 @@ const ActionPanel: React.FC<IProps> = ({ endTime, level, setStartTime, setLevel,
 
   return (
     <div className={s.actionPanel}>
-      <Button className={s.btn} variant="primary" onClick={onPlay}>
+      <Button className={[s.btn, s.playBtn].join(' ')} variant="primary" onClick={onPlay}>
         {startBtnLabel}
       </Button>
+      <div className={s.title}>Level</div>
       <Levels level={level} setLevel={setLevel} />
     </div>
   );
