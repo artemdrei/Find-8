@@ -14,6 +14,7 @@ import s from './styles.scss';
 let initialStartTime = 0;
 const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStartTime, setEndTime }) => {
   const [showTutorial, setShowTutorial] = useState(false);
+  const [fadeIn, setFadeIn] = useState(s.fadeIn);
 
   // TODO:: refactoring later
   useEffect(() => {
@@ -23,6 +24,9 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
     } else {
       setShowTutorial(false);
     }
+
+    // Animate content on time change (browser do not use same keyframe)
+    setFadeIn(fadeIn === s.fadeIn ? s.fadeIn2 : s.fadeIn);
   }, [startTime]);
 
   const { rows, cells } = CONFIG.levels[level];
@@ -42,13 +46,13 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
   };
 
   return (
-    <div className={s.field}>
+    <div className={[s.field, fadeIn].join(' ')}>
       {/* Tutorial */}
       {showTutorial ? <Tutorial setStartTime={setStartTime} /> : null}
 
       {/* Win*/}
       {endTime ? (
-        <div className={s.fadeIn}>
+        <div className={fadeIn}>
           <Win
             level={level}
             startTime={startTime}
@@ -63,7 +67,8 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
       {/* Matrix field */}
       {/* TODO: Move into component */}
       {!showTutorial && startTime && !endTime ? (
-        <div onClick={handleClick}>
+        <div onClick={handleClick} className={fadeIn}>
+          {console.log('DAA')}
           {matrix.map((row, i) => {
             return (
               <div className={s.row} key={'row' + i}>
