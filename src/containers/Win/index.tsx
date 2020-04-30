@@ -28,7 +28,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
 
   return (
     <div>
-      <h1>🎉 Congratulation!</h1>
+      <h1>🎉 Congratulations!</h1>
       <div>
         You have finished {level} level in{' '}
         <b>

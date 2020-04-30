@@ -10,15 +10,15 @@ import s from './styles.scss';
 const App = () => {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
+  const [hasAnswerBtn, toggleAnswerBtn] = useState(false);
   const [level, setLevel] = useState<TLevel>('easy');
 
-  // Set startTime and reset other params
   useEffect(() => {
     setEndTime(0);
   }, [startTime]);
 
   useEffect(() => {
-    setStartTime(+new Date());
+    toggleAnswerBtn(false);
   }, [level]);
 
   return (
@@ -26,17 +26,21 @@ const App = () => {
       <div className={s.container}>
         <Field
           level={level}
+          hasAnswerBtn={hasAnswerBtn}
           startTime={startTime}
           endTime={endTime}
           setLevel={setLevel}
-          setStartTime={(date: number) => setStartTime(date)}
-          setEndTime={(date: number) => setEndTime(date)}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
         />
         <ActionPanel
           level={level}
+          hasAnswerBtn={hasAnswerBtn}
+          startTime={startTime}
           endTime={endTime}
-          setStartTime={(time: number) => setStartTime(time)}
-          setEndTime={(date: number) => setEndTime(date)}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
+          toggleAnswerBtn={toggleAnswerBtn}
           setLevel={setLevel}
         />
       </div>

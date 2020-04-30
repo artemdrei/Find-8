@@ -6,10 +6,11 @@ import { CONFIG } from '@root/config';
 import Form from 'react-bootstrap/Form';
 import { TLevel } from '@root/typings';
 
-const Level: React.FC<IProps> = ({ level, setLevel }) => {
+const Level: React.FC<IProps> = ({ level, setLevel, setStartTime }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const level = e.target.value as TLevel;
     setLevel(level);
+    setStartTime(+new Date());
   };
 
   return (

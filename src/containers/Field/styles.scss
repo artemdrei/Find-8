@@ -8,32 +8,6 @@
   animation: fadeIn 200ms ease-in;
 }
 
-.fadeIn {
-  animation: fadeIn 400ms ease-in;
-}
-
-.fadeIn2 {
-  animation: fadeIn2 400ms ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn2 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .row {
   display: flex;
 
@@ -60,5 +34,35 @@
 
   &::before {
     content: attr(data-content);
+  }
+}
+
+.highlighted {
+  background-color: red;
+}
+
+.fadeIn {
+  animation: fadeIn 200ms ease-in;
+}
+
+.fadeIn2 {
+  animation: fadeIn2 200ms ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

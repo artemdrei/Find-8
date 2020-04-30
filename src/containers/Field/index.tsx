@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { IProps } from './types';
+import { IProps, TMatrix } from './types';
 
 import { CONFIG } from '@root/config';
 import { generateMatrix } from './utils/generateMatrix';
@@ -11,30 +11,26 @@ import Win from '@root/containers/Win';
 
 import s from './styles.scss';
 
-let initialStartTime = 0;
-const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStartTime, setEndTime }) => {
-  const [showTutorial, setShowTutorial] = useState(false);
+let matrix: TMatrix = [];
+const Field: React.FC<IProps> = (props) => {
+  const { level, hasAnswerBtn, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
 
-  // TODO:: refactoring later
   useEffect(() => {
-    if (initialStartTime === 0) {
-      setShowTutorial(true);
-      initialStartTime = startTime;
-    } else {
-      setShowTutorial(false);
-    }
-
-    // Animate content on time change (browser do not use same keyframe)
+    // TODO:: refactoring later
+    // Animate content on time change (browser don't animate same keyframe on rerender)
     setFadeIn(fadeIn === s.fadeIn ? s.fadeIn2 : s.fadeIn);
   }, [startTime]);
 
   const { rows, cells } = CONFIG.levels[level];
   const { defaultValue, seekedValue } = CONFIG.field;
   const coreMatrix = generateMatrix(rows, cells, defaultValue);
-  const matrix = setSeekedValue(coreMatrix, rows, cells, seekedValue);
+  // Use cached matrix on giveUp for preventing generated new one on rerender
+  matrix = hasAnswerBtn ? matrix : setSeekedValue(coreMatrix, rows, cells, seekedValue);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (hasAnswerBtn) return;
+
     const { content } = (e.target as HTMLDivElement).dataset;
 
     if (content === seekedValue.toString()) {
@@ -48,7 +44,7 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
   return (
     <div className={[s.field, fadeIn].join(' ')}>
       {/* Tutorial */}
-      {showTutorial ? <Tutorial setStartTime={setStartTime} /> : null}
+      {startTime === 0 ? <Tutorial setStartTime={setStartTime} /> : null}
 
       {/* Win*/}
       {endTime ? (
@@ -66,15 +62,17 @@ const Field: React.FC<IProps> = ({ level, startTime, endTime, setLevel, setStart
 
       {/* Matrix field */}
       {/* TODO: Move into component */}
-      {!showTutorial && startTime && !endTime ? (
+      {startTime && !endTime ? (
         <div onClick={handleClick} className={fadeIn}>
-          {console.log('DAA')}
           {matrix.map((row, i) => {
             return (
               <div className={s.row} key={'row' + i}>
-                {row.map((num: number, j) => (
-                  <div className={s.cell} key={'cell' + j} data-content={num}></div>
-                ))}
+                {row.map((val, j) => {
+                  const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
+                  return (
+                    <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>
+                  );
+                })}
               </div>
             );
           })}
