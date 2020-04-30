@@ -6,9 +6,11 @@ import { IProps } from './types';
 import { CONFIG } from '@root/config';
 
 import Button from 'react-bootstrap/Button';
+import Logo from '@root/components/Logo';
 
 import { getSeekDuration } from './utils/getSeekDuration';
 
+import s from './styles.scss';
 import gs from '@root/assets/styles/index.scss';
 
 const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setStartTime, setEndTime }) => {
@@ -28,7 +30,8 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
 
   return (
     <div>
-      <h1>🎉 Congratulations!</h1>
+      <Logo className={s.logoTop} />
+      <h3 className={s.title}>Congratulations!</h3>
       <div>
         You have finished {level} level in{' '}
         <b>
