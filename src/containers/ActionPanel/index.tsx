@@ -33,7 +33,7 @@ const ActionPanel: React.FC<IProps> = (props) => {
     <div className={s.actionPanel}>
       {startTime && !hasAnswerBtn && !endTime ? (
         <Button className={[s.btn, s.playBtn].join(' ')} variant="primary" onClick={onGiveUp}>
-          Give Up
+          Show Answer
         </Button>
       ) : (
         <Button className={[s.btn, s.playBtn].join(' ')} variant="primary" onClick={onPlay}>

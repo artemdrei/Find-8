@@ -6,14 +6,11 @@ import { CONFIG } from '@root/config';
 import { generateMatrix } from './utils/generateMatrix';
 import { setSeekedValue } from './utils/setSeekedValue';
 
-import Tutorial from '@root/containers/Tutorial';
-import Win from '@root/containers/Win';
-
 import s from './styles.scss';
 
 let matrix: TMatrix = [];
 const Field: React.FC<IProps> = (props) => {
-  const { level, hasAnswerBtn, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
+  const { level, hasAnswerBtn, startTime, setEndTime } = props;
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
 
   useEffect(() => {
@@ -42,42 +39,17 @@ const Field: React.FC<IProps> = (props) => {
   };
 
   return (
-    <div className={[s.field, fadeIn].join(' ')}>
-      {/* Tutorial */}
-      {startTime === 0 ? <Tutorial setStartTime={setStartTime} /> : null}
-
-      {/* Win*/}
-      {endTime ? (
-        <div className={fadeIn}>
-          <Win
-            level={level}
-            startTime={startTime}
-            endTime={endTime}
-            setLevel={setLevel}
-            setStartTime={setStartTime}
-            setEndTime={setEndTime}
-          />
-        </div>
-      ) : null}
-
-      {/* Matrix field */}
-      {/* TODO: Move into component */}
-      {startTime && !endTime ? (
-        <div onClick={handleClick} className={fadeIn}>
-          {matrix.map((row, i) => {
-            return (
-              <div className={s.row} key={'row' + i}>
-                {row.map((val, j) => {
-                  const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
-                  return (
-                    <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-      ) : null}
+    <div onClick={handleClick} className={fadeIn}>
+      {matrix.map((row, i) => {
+        return (
+          <div className={s.row} key={'row' + i}>
+            {row.map((val, j) => {
+              const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
+              return <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>;
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };

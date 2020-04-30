@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { TLevel } from '@root/typings';
 
-import Field from '@root/containers/Field';
+import Content from '@root/containers/Content';
 import ActionPanel from '@root/containers/ActionPanel';
 
 import s from './styles.scss';
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
       <div className={s.container}>
-        <Field
+        <Content
           level={level}
           hasAnswerBtn={hasAnswerBtn}
           startTime={startTime}
