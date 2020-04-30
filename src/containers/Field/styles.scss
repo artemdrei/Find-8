@@ -25,11 +25,11 @@
 }
 
 .fadeIn {
-  animation: fadeIn 200ms ease-in;
+  animation: fadeIn 200ms ease-in-out;
 }
 
 .fadeIn2 {
-  animation: fadeIn2 200ms ease-in;
+  animation: fadeIn2 200ms ease-in-out;
 }
 
 @keyframes fadeIn {

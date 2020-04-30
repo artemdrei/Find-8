@@ -2,17 +2,64 @@
 
 .logo {
   font-size: 24px;
+
+  &:hover {
+    .eight {
+      transform: rotate(90deg);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 18px;
+        display: block;
+        width: 2px;
+        height: 2px;
+        background-color: $gray-600;
+        border-radius: 50%;
+        animation: blink 2000ms ease-in;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 11px;
+        display: block;
+        width: 2px;
+        height: 2px;
+        background-color: $gray-600;
+        border-radius: 50%;
+        animation: blink 2000ms ease-in;
+      }
+
+      .mouth {
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        left: 10px;
+        right: 0;
+        height: 11px;
+        width: 14px;
+        margin: 0 auto;
+        border-bottom: 2px solid $gray-600;
+        border-radius: 100%;
+        transform: rotate(-90deg);
+        animation: mouthFadeIn 200ms ease-in;
+      }
+    }
+  }
 }
 
 .find {
   display: inline-block;
   margin-right: 0.3em;
   letter-spacing: -0.02em;
-  color: $trolleyGray-500;
-  text-shadow: 1px -1px 0px $trolleyGray-500;
+  color: $gray-700;
 }
 
 .eight {
+  position: relative;
   display: inline-block;
   transform: rotate(45deg);
   border-radius: 8px;
@@ -22,4 +69,37 @@
   color: $trolleyGray-700;
   background-color: $mediumSeaGreen-A200;
   box-shadow: 4px 4px 6px -4px $trolleyGray-200;
+  transition: transform 200ms ease-out;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  69% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mouthFadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
 }

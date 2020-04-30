@@ -8,7 +8,9 @@ const Logo: React.FC<IProps> = ({ className = '' }) => {
   return (
     <h1 className={[s.logo, className].join(' ')}>
       <span className={s.find}>find</span>
-      <span className={s.eight}>8</span>
+      <span className={s.eight}>
+        8 <span className={s.mouth}></span>
+      </span>
     </h1>
   );
 };
