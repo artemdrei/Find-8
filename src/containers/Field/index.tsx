@@ -5,6 +5,7 @@ import { IProps, TMatrix } from './types';
 import { CONFIG } from '@root/config';
 import { generateMatrix } from './utils/generateMatrix';
 import { setSeekedValue } from './utils/setSeekedValue';
+import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 
 import s from './styles.scss';
 
@@ -32,7 +33,9 @@ const Field: React.FC<IProps> = (props) => {
 
     if (content === seekedValue.toString()) {
       console.log('SUCCESS');
-      setEndTime(+new Date());
+      const endTime = +new Date();
+      setEndTime(endTime);
+      setResultInLocalStorage(level, startTime, endTime);
     } else {
       console.log('ERRROR');
     }

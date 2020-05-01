@@ -15,6 +15,8 @@ import gs from '@root/assets/styles/index.scss';
 
 const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setStartTime, setEndTime }) => {
   const { time, units } = getSeekDuration(startTime, endTime);
+  const score = JSON.parse(localStorage.getItem('find8') as string);
+  const bestResult = score[level] ? getSeekDuration(score[level].startTime, score[level].endTime) : null;
 
   const handleNextLevel = () => {
     const nextLevel = CONFIG.levels[level].nextLevel as TLevel;
@@ -38,6 +40,14 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
           {time} {units}
         </b>
       </div>
+      {bestResult ? (
+        <div>
+          Your best score for {level} level:
+          <b>
+            {bestResult.time} {bestResult.units}
+          </b>
+        </div>
+      ) : null}
       <div>
         Challenge yourself with{' '}
         <Button className={gs.btnLink} variant="link" onClick={handleNextLevel}>

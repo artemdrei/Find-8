@@ -12,7 +12,7 @@ const Content: React.FC<IProps> = (props) => {
   const { level, hasAnswerBtn, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
 
   return (
-    <div className={[s.content, s.fadeIn].join(' ')}>
+    <div className={s.content}>
       {/* Tutorial */}
       {startTime === 0 ? <Tutorial setStartTime={setStartTime} /> : null}
 
