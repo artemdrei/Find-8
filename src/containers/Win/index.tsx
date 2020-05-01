@@ -36,7 +36,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
     setEndTime(0);
   };
 
-  const title = getRandomWord(labels.congratulations);
+  const title = getRandomWord(labels.win.title);
 
   return (
     <div>
@@ -45,7 +45,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
       <div className={s.content}>
         <div>
           <CheckIcon className={s.checkIcon} />
-          Your time:{' '}
+          {labels.win.currentTime}:{' '}
           <b>
             {time}
             {units}
@@ -53,7 +53,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
         </div>
         {bestResult ? (
           <div className={s.bestScore}>
-            <MedalIcon className={s.medalIcon} /> Your best time:{' '}
+            <MedalIcon className={s.medalIcon} /> {labels.win.bestResult}:{' '}
             <b>
               {bestResult.time}
               {bestResult.units}
@@ -61,13 +61,13 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
           </div>
         ) : null}
         <div className={s.playAgain}>
-          Challenge yourself with{' '}
+          {labels.win.challengeYourself}{' '}
           <Button className={gs.btnLink} variant="link" onClick={handleNextLevel}>
-            Next Level
+            {labels.buttons.nextLevel}
           </Button>{' '}
-          or{' '}
+          {labels.general.or}{' '}
           <Button className={gs.btnLink} variant="link" onClick={handleRetry}>
-            Retry
+            {labels.buttons.retry}
           </Button>
         </div>
       </div>
