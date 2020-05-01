@@ -104,6 +104,13 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.css$/,
         use: getStyleLoader(),
       },
@@ -112,19 +119,23 @@ const config = {
         use: getStyleLoader('sass-loader'),
       },
       {
-        test: /\.(jpg|jpeg|svg|png|gif)$/,
+        test: /\.(jpg|jpeg|png|gif)$/,
         use: ['file-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-react-loader',
+            options: {
+              jsx: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|woff|woff2|oet)$/,
         use: ['file-loader'],
-      },
-      {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
       },
     ],
   },

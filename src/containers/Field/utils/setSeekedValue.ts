@@ -1,6 +1,6 @@
 import { TMatrix } from '../types';
 
-import { getRandomInt } from './getRandomInt';
+import { getRandomInt } from '@root/utils';
 
 /**
  *

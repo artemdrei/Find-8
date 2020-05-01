@@ -12,7 +12,7 @@ export const getSeekDuration = (startTime: number, endTime: number): ISeekDurati
       ? minutes + 1 + ':00'
       : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
     : seconds;
-  const units = minutes ? (minutes > 2 ? 'minutes' : 'minutes') : seconds > 1 ? 'seconds' : 'second';
+  const units = minutes ? 'min' : 'sec';
 
   return {
     time: +time,

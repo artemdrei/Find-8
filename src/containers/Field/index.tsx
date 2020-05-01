@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { IProps, TMatrix } from './types';
 
 import { CONFIG } from '@root/config';
-import { generateMatrix } from './utils/generateMatrix';
+import { generateMatrix } from '@root/utils';
 import { setSeekedValue } from './utils/setSeekedValue';
 import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 

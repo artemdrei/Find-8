@@ -1,4 +1,4 @@
-import { TMatrix } from '../types';
+import { TMatrix } from '../containers/Field/types';
 
 /**
  *

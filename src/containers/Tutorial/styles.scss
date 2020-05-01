@@ -1,3 +1,5 @@
+@import '../../assets/styles/colors.scss';
+
 .logoTop {
   position: absolute;
   left: 22px;
@@ -8,6 +10,13 @@
   text-align: center;
 }
 
+.content {
+  color: $trolleyGray-600;
+
+  b {
+    color: $trolleyGray-800;
+  }
+}
 .playBtn {
   padding: 0;
   text-decoration: underline;
