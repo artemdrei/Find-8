@@ -4,6 +4,7 @@ import { TLevel } from '@root/typings';
 
 import Content from '@root/containers/Content';
 import ActionPanel from '@root/containers/ActionPanel';
+import QuickClick from '@root/containers/Toasts/QuickClick';
 
 import s from './styles.scss';
 
@@ -12,6 +13,7 @@ const App = () => {
   const [endTime, setEndTime] = useState(0);
   const [hasAnswerBtn, toggleAnswerBtn] = useState(false);
   const [level, setLevel] = useState<TLevel>('easy');
+  const [hasQuickClickToast, toggleQuickClickToast] = useState(false);
 
   useEffect(() => {
     setEndTime(0);
@@ -32,6 +34,7 @@ const App = () => {
           setLevel={setLevel}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
+          toggleQuickClickToast={toggleQuickClickToast}
         />
         <ActionPanel
           level={level}
@@ -43,6 +46,9 @@ const App = () => {
           toggleAnswerBtn={toggleAnswerBtn}
           setLevel={setLevel}
         />
+      </div>
+      <div className={s.toastsWrapper}>
+        <QuickClick isShown={hasQuickClickToast} toggleIsShown={toggleQuickClickToast} />
       </div>
     </>
   );

@@ -8,6 +8,12 @@ const labels = {
     'Very Good!',
     'Awesome!',
   ],
+  toasters: {
+    notSoFast: {
+      title: 'Easy, Easy...',
+      body: 'Not so fast, cowboy!',
+    },
+  },
 };
 
 export default labels;

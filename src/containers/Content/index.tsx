@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IProps } from './types';
 
@@ -9,7 +9,33 @@ import Field from '@root/containers/Field';
 import s from './styles.scss';
 
 const Content: React.FC<IProps> = (props) => {
-  const { level, hasAnswerBtn, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
+  const {
+    level,
+    hasAnswerBtn,
+    startTime,
+    endTime,
+    setLevel,
+    setStartTime,
+    setEndTime,
+    toggleQuickClickToast,
+  } = props;
+
+  const [clickTime, setClickTime] = useState<number[]>([]);
+
+  const handleClick = () => {
+    if (clickTime.length === 3) {
+      const start = clickTime[0];
+      const end = clickTime[clickTime.length - 1];
+
+      // Fast clicking
+      if (end - start <= 1000) {
+        toggleQuickClickToast(true);
+      }
+      setClickTime([]);
+    } else {
+      setClickTime([...clickTime, +new Date()]);
+    }
+  };
 
   return (
     <div className={s.content}>
@@ -32,7 +58,9 @@ const Content: React.FC<IProps> = (props) => {
 
       {/* Matrix field */}
       {startTime && !endTime ? (
-        <Field level={level} hasAnswerBtn={hasAnswerBtn} startTime={startTime} setEndTime={setEndTime} />
+        <div onClick={handleClick}>
+          <Field level={level} hasAnswerBtn={hasAnswerBtn} startTime={startTime} setEndTime={setEndTime} />
+        </div>
       ) : null}
     </div>
   );

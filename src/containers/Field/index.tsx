@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 
 import { IProps, TMatrix } from './types';
 
@@ -30,14 +30,12 @@ const Field: React.FC<IProps> = (props) => {
     if (hasAnswerBtn) return;
 
     const { content } = (e.target as HTMLDivElement).dataset;
+    const correctAnswer = content === seekedValue.toString();
 
-    if (content === seekedValue.toString()) {
-      console.log('SUCCESS');
+    if (correctAnswer) {
       const endTime = +new Date();
       setEndTime(endTime);
       setResultInLocalStorage(level, startTime, endTime);
-    } else {
-      console.log('ERRROR');
     }
   };
 
@@ -57,4 +55,4 @@ const Field: React.FC<IProps> = (props) => {
   );
 };
 
-export default Field;
+export default memo(Field);

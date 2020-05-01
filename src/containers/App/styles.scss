@@ -9,3 +9,24 @@
   border-radius: 4px;
   border: 1px solid $commonGray-A200;
 }
+
+.toastsWrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  background: #fff;
+  min-width: 300px;
+
+  :global {
+    .toast-header {
+      font-size: 16px;
+      color: $trolleyGray-800;
+    }
+
+    .toast-body {
+      font-size: 16px;
+      color: $trolleyGray-600;
+    }
+  }
+}
