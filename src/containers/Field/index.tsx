@@ -29,7 +29,7 @@ const Field: React.FC<IProps> = (props) => {
 
   useEffect(() => {
     if (level === 'ninja') {
-      initMatrix(rows, cells, defaultValue);
+      initMatrix(rows, cells, defaultValue, true);
     } else if (level === 'insanity') {
       initMatrix(rows, cells, defaultValue, true);
     }
