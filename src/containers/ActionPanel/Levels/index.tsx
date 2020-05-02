@@ -7,6 +7,8 @@ import { CONFIG } from '@root/config';
 import Form from 'react-bootstrap/Form';
 import { TLevel } from '@root/typings';
 
+import s from './styles.scss';
+
 const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const level = e.target.value as TLevel;
@@ -21,9 +23,10 @@ const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime 
     <div>
       {Object.keys(CONFIG.levels).map((level) => {
         if (noInsanityLevel && level === 'insanity') return null;
+        const animationClassName = level === 'insanity' ? s.animate : '';
 
         return (
-          <div key={`custom-inline-${level}`}>
+          <div key={`custom-inline-${level}`} className={animationClassName}>
             <Form.Check
               custom
               id={level}
