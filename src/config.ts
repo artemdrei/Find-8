@@ -32,6 +32,12 @@ const levels = {
     cells: 25,
     nextLevel: 'ninja',
   },
+  insanity: {
+    label: label.levels.ninja,
+    rows: 25,
+    cells: 25,
+    nextLevel: 'insanity',
+  },
 };
 
 export const CONFIG: TConfig = {

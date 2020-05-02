@@ -1,5 +1,9 @@
+import { TLevel } from './levels';
+
 export type TScore = {
-  startTime: number;
-  endTime: number;
-  seekDuration: number;
+  [key in TLevel]: {
+    startTime: number;
+    endTime: number;
+    seekDuration: number;
+  };
 };

@@ -32,6 +32,7 @@ const labels = {
     medium: 'Medium',
     hard: 'Hard',
     ninja: 'Ninja',
+    insanity: 'Insanity',
   },
 };
 
