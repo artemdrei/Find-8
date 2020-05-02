@@ -1,8 +1,9 @@
 @import '../../assets/styles/colors.scss';
 
 .actionPanel {
-  width: 20%;
-  padding: 20px 12px;
+  width: 25%;
+  min-width: 200px;
+  padding: 20px;
   border-left: 1px solid $commonGray-A200;
 
   [class^='custom-control'] {
