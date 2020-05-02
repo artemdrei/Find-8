@@ -3,9 +3,13 @@ import { compose } from 'redux';
 
 import { IProps, TMatrix } from './types';
 
+import If from '@root/components/If';
+import MatrixRain from '@root/containers/MatrixRain';
+
 import { CONFIG } from '@root/config';
 import { generateMatrix } from '@root/utils';
 import { setSeekedValue } from './utils/setSeekedValue';
+
 import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 
 import s from './styles.scss';
@@ -36,7 +40,7 @@ const Field: React.FC<IProps> = (props) => {
   }, [level]);
 
   const initMatrix = (rows: number, cells: number, defaultValue: string | number, isFullScreen?: boolean) => {
-    const content = document.querySelector('div[data-id="content"]') as HTMLDivElement;
+    const content = document.querySelector('#content') as HTMLDivElement;
     const maxFiledRows = Math.floor(content?.clientHeight / CELL_SIZE);
     const maxFieldCells = Math.floor(content?.clientWidth / CELL_SIZE);
 
@@ -71,18 +75,23 @@ const Field: React.FC<IProps> = (props) => {
   };
 
   return (
-    <div onClick={handleClick} className={fadeIn}>
-      {matrix.map((row, i) => {
-        return (
-          <div className={s.row} key={'row' + i}>
-            {row.map((val, j) => {
-              const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
-              return <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>;
-            })}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <If condition={level === 'insanity'}>
+        <MatrixRain />
+      </If>
+      <div onClick={handleClick} className={[s.field, fadeIn].join(' ')}>
+        {matrix.map((row, i) => {
+          return (
+            <div className={s.row} key={'row' + i}>
+              {row.map((val, j) => {
+                const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
+                return <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>;
+              })}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

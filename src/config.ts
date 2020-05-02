@@ -3,8 +3,8 @@ import { TConfig } from './typings';
 import label from '@root/i18n';
 
 const field = {
-  defaultValue: '😀',
-  seekedValue: '💩',
+  defaultValue: '9',
+  seekedValue: '8',
 };
 
 const levels = {

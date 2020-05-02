@@ -1,5 +1,10 @@
 @import '../../assets/styles/colors.scss';
 
+.field {
+  position: relative;
+  z-index: 1;
+}
+
 .row {
   display: flex;
 }

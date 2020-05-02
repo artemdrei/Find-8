@@ -39,7 +39,7 @@ const Content: React.FC<IProps> = (props) => {
   };
 
   return (
-    <div className={s.content} data-id="content">
+    <div id="content" className={s.content}>
       {/* Tutorial */}
       <If condition={startTime === 0}>
         <Tutorial setStartTime={setStartTime} />
