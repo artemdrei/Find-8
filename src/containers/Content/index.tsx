@@ -5,6 +5,7 @@ import { IProps } from './types';
 import Tutorial from '@root/containers/Tutorial';
 import Win from '@root/containers/Win';
 import Field from '@root/containers/Field';
+import If from '@root/components/If';
 
 import s from './styles.scss';
 
@@ -40,10 +41,12 @@ const Content: React.FC<IProps> = (props) => {
   return (
     <div className={s.content} data-id="content">
       {/* Tutorial */}
-      {startTime === 0 ? <Tutorial setStartTime={setStartTime} /> : null}
+      <If condition={startTime === 0}>
+        <Tutorial setStartTime={setStartTime} />
+      </If>
 
       {/* Win*/}
-      {endTime ? (
+      <If condition={!!endTime}>
         <div className={s.fadeIn}>
           <Win
             level={level}
@@ -54,14 +57,14 @@ const Content: React.FC<IProps> = (props) => {
             setEndTime={setEndTime}
           />
         </div>
-      ) : null}
+      </If>
 
       {/* Matrix field */}
-      {startTime && !endTime ? (
+      <If condition={!!startTime && !endTime}>
         <div onClick={handleClick}>
           <Field level={level} hasAnswerBtn={hasAnswerBtn} startTime={startTime} setEndTime={setEndTime} />
         </div>
-      ) : null}
+      </If>
     </div>
   );
 };
