@@ -30,13 +30,13 @@ const levels = {
     label: label.levels.ninja,
     rows: 25,
     cells: 25,
-    nextLevel: 'ninja',
+    nextLevel: 'insanity',
   },
   insanity: {
     label: label.levels.ninja,
     rows: 25,
     cells: 25,
-    nextLevel: 'insanity',
+    nextLevel: '',
   },
 };
 

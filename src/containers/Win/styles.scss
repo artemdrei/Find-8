@@ -10,35 +10,3 @@
   text-align: center;
   margin-bottom: 20px;
 }
-
-.content {
-  color: $trolleyGray-600;
-
-  b {
-    color: $trolleyGray-800;
-  }
-}
-
-.bestScore {
-  margin-top: 8px;
-}
-
-.medalIcon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-left: -3px;
-  fill: $trolleyGray-600;
-}
-
-.checkIcon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 6px;
-  fill: $trolleyGray-600;
-}
-
-.playAgain {
-  margin-top: 12px;
-}

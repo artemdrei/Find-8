@@ -26,6 +26,7 @@ const labels = {
     currentTime: 'Your time',
     bestResult: 'Your best time',
     challengeYourself: 'Challenge yourself with',
+    retryInsanity: 'Improve your best score! ',
   },
   levels: {
     easy: 'Easy',
