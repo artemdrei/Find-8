@@ -9,7 +9,7 @@ type TLevels = {
   [key in TLevel]: {
     label: string;
     rows: number;
-    cells: number;
+    columns: number;
     nextLevel: string;
   };
 };

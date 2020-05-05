@@ -18,38 +18,39 @@ const Field: React.FC<IProps> = (props) => {
   const { level, hasAnswerBtn, startTime, setEndTime } = props;
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
   const [matrix, setMatrix] = useState<TMatrix>([]);
-  const { rows, cells } = CONFIG.levels[level];
+  const { rows, columns } = CONFIG.levels[level];
   const { defaultValue, seekedValue } = CONFIG.field;
   const CELL_SIZE = 30;
 
   // TODO: optimize rerenders (on change time/level) later
   useEffect(() => {
-    initMatrix(rows, cells, defaultValue);
+    if (level === 'ninja' || level === 'insanity') {
+      initMatrix(rows, columns, defaultValue, true);
+    } else {
+      initMatrix(rows, columns, defaultValue);
+    }
 
     // TODO:: refactoring later
     // Animate content on time change (browser don't animate same keyframe on rerender)
     setFadeIn(fadeIn === s.fadeIn ? s.fadeIn2 : s.fadeIn);
-  }, [startTime]);
+  }, [startTime, level]);
 
-  useEffect(() => {
-    if (level === 'ninja') {
-      initMatrix(rows, cells, defaultValue, true);
-    } else if (level === 'insanity') {
-      initMatrix(rows, cells, defaultValue, true);
-    }
-  }, [level]);
-
-  const initMatrix = (rows: number, cells: number, defaultValue: string | number, isFullScreen?: boolean) => {
+  const initMatrix = (
+    rows: number,
+    columns: number,
+    defaultValue: string | number,
+    isFullScreen?: boolean
+  ) => {
     const content = document.querySelector('#content') as HTMLDivElement;
     const maxFiledRows = Math.floor(content?.clientHeight / CELL_SIZE);
-    const maxFieldCells = Math.floor(content?.clientWidth / CELL_SIZE);
+    const maxFieldColumns = Math.floor(content?.clientWidth / CELL_SIZE);
 
     let r = rows > maxFiledRows ? maxFiledRows : rows;
-    let c = rows > maxFieldCells ? maxFieldCells : cells;
+    let c = rows > maxFieldColumns ? maxFieldColumns : columns;
 
     if (isFullScreen) {
       r = maxFiledRows;
-      c = maxFieldCells;
+      c = maxFieldColumns;
     }
 
     const matrix = compose(

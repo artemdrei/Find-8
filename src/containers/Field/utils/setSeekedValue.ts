@@ -8,12 +8,12 @@ import { getRandomInt } from '@root/utils';
  */
 export const setSeekedValue = (
   matrix: TMatrix,
-  cells: number,
   rows: number,
+  columns: number,
   seekedValue: number | string
 ): TMatrix => {
-  const x = getRandomInt(0, cells);
-  const y = getRandomInt(0, rows);
+  const x = getRandomInt(0, rows);
+  const y = getRandomInt(0, columns);
 
   const matrixCopy = JSON.parse(JSON.stringify(matrix));
   matrixCopy[x][y] = seekedValue;
