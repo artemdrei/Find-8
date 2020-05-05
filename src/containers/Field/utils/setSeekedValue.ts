@@ -8,15 +8,15 @@ import { getRandomInt } from '@root/utils';
  */
 export const setSeekedValue = (
   matrix: TMatrix,
-  rows: number,
-  columns: number,
+  numberOfRows: number,
+  numberOfColumns: number,
   seekedValue: number | string
 ): TMatrix => {
-  const x = getRandomInt(0, rows);
-  const y = getRandomInt(0, columns);
+  const rowIndex = getRandomInt(0, numberOfRows);
+  const columnIndex = getRandomInt(0, numberOfColumns);
 
   const matrixCopy = JSON.parse(JSON.stringify(matrix));
-  matrixCopy[x][y] = seekedValue;
+  matrixCopy[columnIndex][rowIndex] = seekedValue;
 
   return matrixCopy;
 };

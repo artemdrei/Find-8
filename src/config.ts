@@ -1,13 +1,14 @@
-import { TConfig } from './typings';
+import { TConfig, TLevels, TField } from './typings';
 
 import label from '@root/i18n';
 
-const field = {
+const field: TField = {
   defaultValue: '9',
   seekedValue: '8',
+  cellSize: 30,
 };
 
-const levels = {
+const levels: TLevels = {
   easy: {
     label: label.levels.easy,
     rows: 6,

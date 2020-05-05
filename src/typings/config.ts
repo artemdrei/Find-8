@@ -1,11 +1,12 @@
 import { TLevel } from './levels';
 
-type TField = {
+export type TField = {
   defaultValue: string | number;
   seekedValue: string | number;
+  cellSize: number;
 };
 
-type TLevels = {
+export type TLevels = {
   [key in TLevel]: {
     label: string;
     rows: number;

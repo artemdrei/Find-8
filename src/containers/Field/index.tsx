@@ -9,6 +9,7 @@ import MatrixRain from '@root/containers/MatrixRain';
 import { CONFIG } from '@root/config';
 import { generateMatrix } from '@root/utils';
 import { setSeekedValue } from './utils/setSeekedValue';
+import { useFieldSize } from './utils/useFieldSize';
 
 import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 
@@ -19,19 +20,21 @@ const Field: React.FC<IProps> = (props) => {
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
   const [matrix, setMatrix] = useState<TMatrix>([]);
   const { rows, columns } = CONFIG.levels[level];
-  const { defaultValue, seekedValue } = CONFIG.field;
-  const CELL_SIZE = 30;
+  const { defaultValue, seekedValue, cellSize } = CONFIG.field;
+  const [height, width] = useFieldSize();
 
-  // TODO: optimize rerenders (on change time/level) later
   useEffect(() => {
-    if (level === 'ninja' || level === 'insanity') {
+    initMatrix(rows, columns, defaultValue);
+  }, [width, height]);
+
+  useEffect(() => {
+    if (level === 'insanity') {
       initMatrix(rows, columns, defaultValue, true);
     } else {
       initMatrix(rows, columns, defaultValue);
     }
 
-    // TODO:: refactoring later
-    // Animate content on time change (browser don't animate same keyframe on rerender)
+    // TODO:: Animate content on time change (browser don't animate same keyframe on rerender)
     setFadeIn(fadeIn === s.fadeIn ? s.fadeIn2 : s.fadeIn);
   }, [startTime, level]);
 
@@ -41,16 +44,17 @@ const Field: React.FC<IProps> = (props) => {
     defaultValue: string | number,
     isFullScreen?: boolean
   ) => {
-    const content = document.querySelector('#content') as HTMLDivElement;
-    const maxFiledRows = Math.floor(content?.clientHeight / CELL_SIZE);
-    const maxFieldColumns = Math.floor(content?.clientWidth / CELL_SIZE);
+    if (!width || !height || !startTime) return;
 
-    let r = rows > maxFiledRows ? maxFiledRows : rows;
-    let c = rows > maxFieldColumns ? maxFieldColumns : columns;
+    const maxWidthRows = Math.floor(width / cellSize);
+    const maxHeightRows = Math.floor(height / cellSize);
+
+    let r = rows > maxWidthRows ? maxWidthRows : rows;
+    let c = rows > maxHeightRows ? maxHeightRows : columns;
 
     if (isFullScreen) {
-      r = maxFiledRows;
-      c = maxFieldColumns;
+      r = maxWidthRows;
+      c = maxHeightRows;
     }
 
     const matrix = compose(

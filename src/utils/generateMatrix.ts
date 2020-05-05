@@ -4,6 +4,10 @@ import { TMatrix } from '../containers/Field/types';
  *
  * Generate field matrix
  */
-export const generateMatrix = (rows: number, cell: number, defaultValue: number | string): TMatrix => {
-  return new Array(rows).fill(defaultValue).map((_) => new Array(cell).fill(defaultValue));
+export const generateMatrix = (
+  numberOfRows: number,
+  numberOfColumns: number,
+  defaultValue: number | string
+): TMatrix => {
+  return new Array(numberOfColumns).fill(defaultValue).map((_) => new Array(numberOfRows).fill(defaultValue));
 };
