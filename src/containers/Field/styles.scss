@@ -1,5 +1,3 @@
-@import '../../assets/styles/colors.scss';
-
 .field {
   position: relative;
   z-index: 1;
@@ -24,8 +22,8 @@
 
 .highlighted {
   border-radius: 6px;
-  box-shadow: inset 0 0 0 2px $mediumSeaGreen-400;
-  background-color: $mediumSeaGreen-A200;
+  box-shadow: inset 0 0 0 2px var(--warning-strong);
+  background-color: var(--warning-weak);
   transition: box-shadow 60ms ease-in-out;
 }
 

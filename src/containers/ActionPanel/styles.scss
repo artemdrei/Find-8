@@ -1,10 +1,8 @@
-@import '../../assets/styles/colors.scss';
-
 .actionPanel {
   width: 25%;
   min-width: 200px;
   padding: 20px;
-  border-left: 1px solid $commonGray-A200;
+  border-left: 1px solid var(--faint-weak);
 
   [class^='custom-control'] {
     margin-bottom: 2px;
@@ -30,5 +28,5 @@
   margin-bottom: 4px;
   margin-top: 4px;
   padding-top: 8px;
-  border-top: 1px solid $commonGray-A200;
+  border-top: 1px solid var(--faint-weak);
 }

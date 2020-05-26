@@ -13,12 +13,12 @@ const Tutorial: React.FC<IProps> = ({ setStartTime }) => {
   return (
     <div className={s.tutorial}>
       <Logo className={s.logoTop} />
-      <h2>{labels.tutorial.title}</h2>
+      <h2 className={s.title}>{labels.tutorial.title}</h2>
       <div className={s.content}>
         <div>{labels.tutorial.oneCharIsDifferent}</div>
         <div>
           {labels.general.click}{' '}
-          <Button variant="link" onClick={() => setStartTime(+new Date())} className={s.btnLink}>
+          <Button variant="link" onClick={() => setStartTime(+new Date())}>
             {labels.buttons.play}
           </Button>{' '}
           {labels.tutorial.andTry}

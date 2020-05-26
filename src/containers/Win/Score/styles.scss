@@ -1,10 +1,8 @@
-@import '../../../assets/styles/colors.scss';
-
 .content {
-  color: $trolleyGray-600;
+  color: var(--faint-strong);
 
   b {
-    color: $trolleyGray-800;
+    color: var(--base-weak);
   }
 }
 
@@ -17,7 +15,7 @@
   width: 24px;
   height: 24px;
   margin-left: -3px;
-  fill: $trolleyGray-600;
+  fill: var(--faint-strong);
 }
 
 .checkIcon {
@@ -25,5 +23,5 @@
   width: 16px;
   height: 16px;
   margin-right: 6px;
-  fill: $trolleyGray-600;
+  fill: var(--faint-strong);
 }

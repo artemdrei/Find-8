@@ -1,5 +1,3 @@
-@import '../../assets/styles/colors.scss';
-
 .logoTop {
   position: absolute;
   left: 22px;
@@ -10,22 +8,19 @@
   text-align: center;
 }
 
+.title {
+  color: var(--base-strong);
+}
+
 .content {
-  color: $trolleyGray-600;
+  color: var(--faint-strong);
 
   b {
-    color: $trolleyGray-800;
+    color: var(--faint-strong);
   }
 }
 .playBtn {
   padding: 0;
   text-decoration: underline;
   font-weight: 700;
-}
-
-.btnLink {
-  padding: 0;
-  vertical-align: initial;
-  text-decoration: underline;
-  font-weight: bold;
 }
