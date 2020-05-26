@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IProps } from './types';
 
-import Button from 'react-bootstrap/Button';
+import Button from '@root/components/Button';
 import Levels from './Levels';
 
 import labels from '@root/i18n';
@@ -34,13 +34,21 @@ const ActionPanel: React.FC<IProps> = (props) => {
   return (
     <div className={s.actionPanel}>
       {startTime && !hasAnswerBtn && !endTime ? (
-        <Button className={[s.btn, s.playBtn].join(' ')} variant="primary" onClick={onGiveUp}>
-          {labels.buttons.showAnswer}
-        </Button>
+        <Button
+          size="large"
+          variant="primary"
+          className={s.btn}
+          label={labels.buttons.showAnswer}
+          onClick={onGiveUp}
+        />
       ) : (
-        <Button className={[s.btn, s.playBtn].join(' ')} variant="primary" onClick={onPlay}>
-          {labels.buttons.play}
-        </Button>
+        <Button
+          size="large"
+          variant="primary"
+          className={s.btn}
+          label={labels.buttons.play}
+          onClick={onPlay}
+        />
       )}
 
       <div className={s.title}>{labels.general.level}</div>
