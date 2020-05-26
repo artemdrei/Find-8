@@ -3,7 +3,7 @@ import React from 'react';
 import { IProps } from './types';
 import { TScore } from '@root/typings';
 
-import Button from 'react-bootstrap/Button';
+import Button from '@root/components/Button';
 import If from '@root/components/If';
 
 import labels from '@root/i18n';
@@ -18,21 +18,15 @@ const PlayAgain: React.FC<IProps> = ({ handleNextLevel, handleRetry, level }) =>
     <>
       <If condition={!hasInsanityLevel}>
         <div className={s.playAgain}>
-          {labels.win.challengeYourself}{' '}
-          <Button variant="link" onClick={handleNextLevel}>
-            {labels.buttons.nextLevel}
-          </Button>{' '}
-          {labels.general.or}{' '}
-          <Button variant="link" onClick={handleRetry}>
-            {labels.buttons.retry}
-          </Button>
+          {labels.win.challengeYourself}
+          <Button variant="link" size="large" label={labels.buttons.nextLevel} onClick={handleNextLevel} />
+          {labels.general.or}
+          <Button variant="link" size="large" label={labels.buttons.retry} onClick={handleRetry} />
         </div>
       </If>
       <If condition={hasInsanityLevel}>
-        {labels.win.retryInsanity}{' '}
-        <Button variant="link" onClick={handleRetry}>
-          {labels.buttons.retry}
-        </Button>
+        {labels.win.retryInsanity}
+        <Button variant="link" size="large" label={labels.buttons.retry} onClick={handleRetry} />
       </If>
     </>
   );

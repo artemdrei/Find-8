@@ -1,6 +1,6 @@
 export interface IProps {
   label?: string;
-  size: 'large' | 'medium';
+  size?: 'large';
   children?: React.ReactNode;
   isDisabled?: boolean;
   className?: string;

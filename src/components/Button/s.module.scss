@@ -14,6 +14,19 @@
   outline: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+
+  &:disabled {
+    opacity: 0.6;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.large {
+  padding: 12px 20px;
+  font-size: 16px;
 }
 
 .primary {
@@ -31,17 +44,24 @@
   &:focus:enabled {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
   }
-
-  &:disabled {
-    opacity: 0.6;
-
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
 }
 
-.large {
-  padding: 12px 20px;
-  font-size: 16px;
+.link {
+  background-color: transparent;
+  color: var(--accent-strong);
+  padding: 4px;
+  margin: 0 4px;
+
+  &:hover:enabled {
+    color: var(--accent-strong-up);
+    text-decoration: underline;
+  }
+
+  &:active:enabled {
+    color: var(--accent-strong-down);
+  }
+
+  &:focus:enabled {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
 }

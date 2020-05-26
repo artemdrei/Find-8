@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IProps } from './types';
 
-import Button from 'react-bootstrap/Button';
+import Button from '@root/components/Button';
 import Logo from '@root/components/Logo';
 
 import labels from '@root/i18n';
@@ -17,10 +17,13 @@ const Tutorial: React.FC<IProps> = ({ setStartTime }) => {
       <div className={s.content}>
         <div>{labels.tutorial.oneCharIsDifferent}</div>
         <div>
-          {labels.general.click}{' '}
-          <Button variant="link" onClick={() => setStartTime(+new Date())}>
-            {labels.buttons.play}
-          </Button>{' '}
+          {labels.general.click}
+          <Button
+            variant="link"
+            size="large"
+            label={labels.buttons.play}
+            onClick={() => setStartTime(+new Date())}
+          />
           {labels.tutorial.andTry}
         </div>
       </div>
