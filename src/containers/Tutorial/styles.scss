@@ -9,14 +9,14 @@
 }
 
 .title {
-  color: var(--base-strong);
+  color: var(--base-strong-up);
 }
 
 .content {
-  color: var(--faint-strong);
+  color: var(--base-strong);
 
   b {
-    color: var(--faint-strong);
+    color: var(--base-strong-up);
   }
 }
 .playBtn {

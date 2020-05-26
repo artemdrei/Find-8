@@ -1,8 +1,8 @@
 .content {
-  color: var(--faint-strong);
+  color: var(--base-strong-down);
 
   b {
-    color: var(--base-weak);
+    color: var(--base-strong-up);
   }
 }
 
@@ -15,7 +15,7 @@
   width: 24px;
   height: 24px;
   margin-left: -3px;
-  fill: var(--faint-strong);
+  fill: var(--base-strong-down);
 }
 
 .checkIcon {
@@ -23,5 +23,5 @@
   width: 16px;
   height: 16px;
   margin-right: 6px;
-  fill: var(--faint-strong);
+  fill: var(--base-strong-down);
 }

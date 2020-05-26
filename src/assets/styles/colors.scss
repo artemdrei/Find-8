@@ -1,9 +1,11 @@
 :root {
   /* Родительские цвета */
-  --base-strong: #414141;
+  --base-strong: #565656;
+  --base-strong-up: #414141;
+  --base-strong-down: #6b6b6b;
   --base-weak: #f9f9f9;
 
-  --faint-strong: #6b6b6b;
+  --faint-strong: #738592;
   --faint-weak: #e3e6e9;
 
   --accent-strong: #0070ff;
@@ -20,18 +22,4 @@
 
   --success-strong: #36a269;
   --success-weak: #e1f3ea;
-
-  /* Cдвиги родительских цветов */
-  --faint-strong-down: #a5adbb;
-  --faint-weak-up: #eceef5;
-}
-
-:global {
-  .text-primary {
-    --faint-strong: #414141;
-  }
-
-  .text-secondary {
-    --faint-strong: #6b6b6b;
-  }
 }
