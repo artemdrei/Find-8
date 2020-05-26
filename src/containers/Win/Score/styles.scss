@@ -5,6 +5,15 @@
     color: var(--base-strong-up);
   }
 }
+.currentTime,
+.bestScore {
+  display: flex;
+  align-items: center;
+
+  b {
+    margin-left: 4px;
+  }
+}
 
 .bestScore {
   margin-top: 8px;
@@ -15,6 +24,7 @@
   width: 24px;
   height: 24px;
   margin-left: -3px;
+  margin-right: 4px;
   fill: var(--base-strong-down);
 }
 
@@ -22,6 +32,6 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  margin-right: 6px;
+  margin-right: 8px;
   fill: var(--base-strong-down);
 }

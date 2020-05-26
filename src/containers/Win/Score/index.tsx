@@ -17,7 +17,7 @@ const Score: React.FC<IProps> = ({ startTime, endTime, level }) => {
 
   return (
     <>
-      <div>
+      <div className={s.currentTime}>
         <CheckIcon className={s.checkIcon} />
         {labels.win.currentTime}:{' '}
         <b>
