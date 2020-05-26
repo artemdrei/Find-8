@@ -33,7 +33,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
   return (
     <div>
       <Logo className={s.logoTop} />
-      <h2 className={s.title}>{title}</h2>
+      <h3 className={s.title}>{title}</h3>
       <div className={s.content}>
         <Score level={level} startTime={startTime} endTime={endTime} />
         <PlayAgain level={level} handleNextLevel={handleNextLevel} handleRetry={handleRetry} />
