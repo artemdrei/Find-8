@@ -1,3 +1,12 @@
+.radioGroup {
+  color: var(--base-strong);
+
+  label {
+    display: inline-block;
+    width: calc(100% - 30px);
+  }
+}
+
 @keyframes slideIn {
   0% {
     opacity: 0;

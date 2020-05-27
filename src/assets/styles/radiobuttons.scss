@@ -1,0 +1,25 @@
+input[type='radio'] {
+  width: 16px;
+  height: 16px;
+  margin: 6px 6px 5px 4px;
+  vertical-align: middle;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  border: 1px solid var(--faint-strong);
+  transition: 0.1s all linear;
+
+  outline: none;
+
+  &:checked {
+    border: 6px solid var(--faint-strong);
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0.2rem var(--faint-weak-up);
+  }
+}

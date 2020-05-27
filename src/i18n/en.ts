@@ -2,7 +2,7 @@ const labels = {
   general: {
     or: 'or',
     click: 'Click',
-    level: 'Level',
+    levels: 'Levels',
   },
   buttons: {
     nextLevel: 'Next Level',

@@ -51,7 +51,7 @@ const ActionPanel: React.FC<IProps> = (props) => {
         />
       )}
 
-      <div className={s.title}>{labels.general.level}</div>
+      <div className={s.title}>{labels.general.levels}</div>
       <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} />
     </div>
   );
