@@ -9,16 +9,13 @@
 }
 
 .title {
-  color: var(--base-strong-up);
+  color: var(--font-weak);
 }
 
 .content {
-  color: var(--base-strong);
-
-  b {
-    color: var(--base-strong-up);
-  }
+  color: var(--font-accent);
 }
+
 .playBtn {
   padding: 0;
   text-decoration: underline;

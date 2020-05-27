@@ -19,14 +19,14 @@ const PlayAgain: React.FC<IProps> = ({ handleNextLevel, handleRetry, level }) =>
       <If condition={!hasInsanityLevel}>
         <div className={s.playAgain}>
           {labels.win.challengeYourself}
-          <Button variant="link" size="large" label={labels.buttons.nextLevel} onClick={handleNextLevel} />
+          <Button variant="link" label={labels.buttons.nextLevel} onClick={handleNextLevel} />
           {labels.general.or}
-          <Button variant="link" size="large" label={labels.buttons.retry} onClick={handleRetry} />
+          <Button variant="link" label={labels.buttons.retry} onClick={handleRetry} />
         </div>
       </If>
       <If condition={hasInsanityLevel}>
         {labels.win.retryInsanity}
-        <Button variant="link" size="large" label={labels.buttons.retry} onClick={handleRetry} />
+        <Button variant="link" label={labels.buttons.retry} onClick={handleRetry} />
       </If>
     </>
   );

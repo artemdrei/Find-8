@@ -13,7 +13,7 @@
         display: block;
         width: 2px;
         height: 2px;
-        background-color: var(--base-strong);
+        background-color: var(--base-strong-down);
         border-radius: 50%;
         animation: blink 2000ms ease-in;
       }
@@ -26,7 +26,7 @@
         display: block;
         width: 2px;
         height: 2px;
-        background-color: var(--base-strong);
+        background-color: var(--base-strong-down);
         border-radius: 50%;
         animation: blink 2000ms ease-in;
       }
@@ -40,7 +40,7 @@
         height: 11px;
         width: 14px;
         margin: 0 auto;
-        border-bottom: 2px solid var(--base-strong);
+        border-bottom: 2px solid var(--base-strong-down);
         border-radius: 100%;
         transform: rotate(-90deg);
         animation: mouthFadeIn 200ms ease-in;
@@ -53,7 +53,7 @@
   display: inline-block;
   margin-right: 0.3em;
   letter-spacing: -0.02em;
-  color: var(--base-strong);
+  color: var(--font-accent);
 }
 
 .eight {
@@ -64,7 +64,7 @@
   padding: 0.1em 0.35em 0.1em;
   text-align: center;
   font-weight: 700;
-  color: var(--base-strong);
+  color: var(--base-strong-down);
   background-color: var(--success-weak);
   transition: transform 200ms ease-out;
 }

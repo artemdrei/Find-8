@@ -7,13 +7,13 @@
 .title {
   text-align: center;
   margin-bottom: 20px;
-  color: var(--base-strong-up);
+  color: var(--font-weak);
 }
 
 .content {
-  color: var(--base-strong-down);
+  color: var(--font);
 
   b {
-    color: var(--base-strong-up);
+    color: var(--font-accent);
   }
 }

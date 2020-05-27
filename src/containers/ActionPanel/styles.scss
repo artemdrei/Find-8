@@ -2,7 +2,7 @@
   width: 25%;
   min-width: 200px;
   padding: 20px;
-  border-left: 1px solid var(--faint-weak);
+  border-left: 1px solid var(--base-strong-down);
 
   [class^='custom-control'] {
     margin-bottom: 2px;
@@ -15,7 +15,6 @@
 
 .btn {
   width: 100%;
-  font-weight: 700;
 }
 
 .playBtn {
@@ -28,6 +27,5 @@
   margin-bottom: 4px;
   margin-top: 4px;
   padding-top: 8px;
-  color: var(--base-strong);
-  border-top: 1px solid var(--faint-weak);
+  color: var(--font-accent);
 }

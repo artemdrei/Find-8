@@ -34,21 +34,9 @@ const ActionPanel: React.FC<IProps> = (props) => {
   return (
     <div className={s.actionPanel}>
       {startTime && !hasAnswerBtn && !endTime ? (
-        <Button
-          size="large"
-          variant="primary"
-          className={s.btn}
-          label={labels.buttons.showAnswer}
-          onClick={onGiveUp}
-        />
+        <Button variant="primary" className={s.btn} label={labels.buttons.showAnswer} onClick={onGiveUp} />
       ) : (
-        <Button
-          size="large"
-          variant="primary"
-          className={s.btn}
-          label={labels.buttons.play}
-          onClick={onPlay}
-        />
+        <Button variant="primary" className={s.btn} label={labels.buttons.play} onClick={onPlay} />
       )}
 
       <div className={s.title}>{labels.general.levels}</div>

@@ -9,17 +9,17 @@ input[type='radio'] {
   appearance: none;
 
   border-radius: 50%;
-  border: 1px solid var(--faint-strong);
-  transition: 0.1s all linear;
+  border: 1px solid var(--faint-weak-up);
+  transition: 80ms all ease-out;
 
   outline: none;
 
   &:checked {
-    border: 6px solid var(--faint-strong);
+    border: 4px solid var(--faint-weak-up);
   }
 
   &:active,
   &:focus {
-    box-shadow: 0 0 0 0.2rem var(--faint-weak-up);
+    box-shadow: 0 0 0 0.15rem var(--faint-strong);
   }
 }

@@ -1,6 +1,7 @@
 .field {
   position: relative;
   z-index: 1;
+  color: var(--font);
 }
 
 .row {
@@ -24,6 +25,7 @@
   border-radius: 6px;
   box-shadow: inset 0 0 0 2px var(--warning-strong);
   background-color: var(--warning-weak);
+  color: var(--base-strong);
   transition: box-shadow 60ms ease-in-out;
 }
 

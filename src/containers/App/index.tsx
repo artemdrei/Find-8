@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <>
-      <div className={s.container}>
+      <div className={s.game}>
         <Content
           level={level}
           hasAnswerBtn={hasAnswerBtn}
