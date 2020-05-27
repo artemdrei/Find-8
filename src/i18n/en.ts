@@ -10,12 +10,6 @@ const labels = {
     play: 'Play',
     showAnswer: 'Show Answer',
   },
-  toasters: {
-    notSoFast: {
-      title: 'Easy, Easy...',
-      body: 'Not so fast, cowboy!',
-    },
-  },
   tutorial: {
     title: 'Tutorial',
     oneCharIsDifferent: 'One character is different from the rest.',

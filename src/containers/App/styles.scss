@@ -9,24 +9,3 @@
   border-radius: 4px;
   border: 1px solid var(--faint-weak);
 }
-
-.toastsWrapper {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 100;
-  background: #fff;
-  min-width: 300px;
-
-  :global {
-    .toast-header {
-      font-size: 16px;
-      color: var(--base-strong);
-    }
-
-    .toast-body {
-      font-size: 16px;
-      color: var(--base-strong);
-    }
-  }
-}

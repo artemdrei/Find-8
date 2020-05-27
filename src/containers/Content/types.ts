@@ -10,5 +10,4 @@ export interface IProps {
   setLevel: (level: TLevel) => void;
   setStartTime: (date: number) => void;
   setEndTime: (date: number) => void;
-  toggleQuickClickToast: (flag: boolean) => void;
 }
