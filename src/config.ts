@@ -1,6 +1,6 @@
 import { TConfig, TLevels, TField } from './typings';
 
-import label from '@root/i18n';
+import labels from '@root/i18n';
 
 const field: TField = {
   defaultValue: '9',
@@ -10,31 +10,31 @@ const field: TField = {
 
 const levels: TLevels = {
   easy: {
-    label: label.levels.easy,
+    label: labels.levels.easy,
     rows: 6,
     columns: 6,
     nextLevel: 'medium',
   },
   medium: {
-    label: label.levels.medium,
+    label: labels.levels.medium,
     rows: 10,
     columns: 10,
     nextLevel: 'hard',
   },
   hard: {
-    label: label.levels.hard,
+    label: labels.levels.hard,
     rows: 20,
     columns: 20,
     nextLevel: 'ninja',
   },
   ninja: {
-    label: label.levels.ninja,
+    label: labels.levels.ninja,
     rows: 25,
     columns: 25,
     nextLevel: 'insanity',
   },
   insanity: {
-    label: label.levels.ninja,
+    label: labels.levels.ninja,
     rows: 25,
     columns: 25,
     nextLevel: '',
