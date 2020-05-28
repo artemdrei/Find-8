@@ -1,6 +1,7 @@
 .field {
   position: relative;
   z-index: 1;
+  font-size: 1.1rem;
   color: var(--font);
 }
 
@@ -18,6 +19,7 @@
 
   &::before {
     content: attr(data-content);
+    line-height: 1;
   }
 }
 

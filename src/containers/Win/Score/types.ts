@@ -1,7 +1,7 @@
-import { TLevel } from '@root/typings';
+import { ISeekDuration } from '../utils/getSeekDuration';
 
 export interface IProps {
-  level: TLevel;
   startTime: number;
   endTime: number;
+  bestResult: ISeekDuration;
 }

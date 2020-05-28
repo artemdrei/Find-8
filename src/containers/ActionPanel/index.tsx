@@ -33,14 +33,16 @@ const ActionPanel: React.FC<IProps> = (props) => {
 
   return (
     <div className={s.actionPanel}>
-      {startTime && !hasAnswerBtn && !endTime ? (
-        <Button variant="primary" className={s.btn} label={labels.buttons.showAnswer} onClick={onGiveUp} />
-      ) : (
-        <Button variant="primary" className={s.btn} label={labels.buttons.play} onClick={onPlay} />
-      )}
+      <div className={s.mainBtn}>
+        {startTime && !hasAnswerBtn && !endTime ? (
+          <Button variant="primary" className={s.btn} label={labels.buttons.showAnswer} onClick={onGiveUp} />
+        ) : (
+          <Button variant="primary" className={s.btn} label={labels.buttons.play} onClick={onPlay} />
+        )}
+      </div>
 
-      <div className={s.title}>{labels.general.levels}</div>
-      <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} />
+      <h5 className={s.title}>{labels.general.levels}</h5>
+      <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
     </div>
   );
 };

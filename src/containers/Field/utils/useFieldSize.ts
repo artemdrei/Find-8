@@ -14,7 +14,6 @@ export const useFieldSize = () => {
     updateSize();
     return () => window.removeEventListener('optimizedResize', updateSize);
   }, []);
-  console.log('size:', size);
 
   return size;
 };

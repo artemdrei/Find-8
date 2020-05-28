@@ -1,4 +1,4 @@
-type ISeekDuration = {
+export type ISeekDuration = {
   time: string;
   units: string;
 };

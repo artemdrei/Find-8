@@ -1,7 +1,7 @@
 .actionPanel {
   width: 25%;
   min-width: 200px;
-  padding: 20px;
+  padding: 20px 24px;
   border-left: 1px solid var(--base-strong-down);
 
   [class^='custom-control'] {
@@ -13,6 +13,11 @@
   }
 }
 
+.mainBtn {
+  border-bottom: 1px solid var(--base-strong-down);
+  padding-bottom: 20px;
+}
+
 .btn {
   width: 100%;
 }
@@ -22,10 +27,8 @@
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 400;
+  margin-top: 20px;
   margin-bottom: 4px;
-  margin-top: 4px;
   padding-top: 8px;
-  color: var(--font-accent);
+  color: var(--font-weak);
 }

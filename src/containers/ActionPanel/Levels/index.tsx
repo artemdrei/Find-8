@@ -8,11 +8,12 @@ import { TLevel } from '@root/typings';
 
 import s from './styles.scss';
 
-const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime }) => {
+const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime, setEndTime }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const level = e.target.value as TLevel;
     setLevel(level);
     setStartTime(+new Date());
+    setEndTime(0);
   };
 
   const score: TScore = JSON.parse(localStorage.getItem('find8') as string);
@@ -22,12 +23,12 @@ const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime 
     <div className={s.radioGroup}>
       {Object.keys(CONFIG.levels).map((level) => {
         if (noInsanityLevel && level === 'insanity') return null;
-        const animationClassName = level === 'insanity' ? s.animate : ''; // TODO
+        // const animationClassName = level === 'insanity' ? s.animate : ''; // TODO
         return (
-          <div>
+          <div className={s.radioButton} key={level}>
             <input
-              name="levels"
               type="radio"
+              name="levels"
               id={level}
               value={level}
               checked={level === selectedLevel}

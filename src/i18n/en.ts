@@ -17,6 +17,7 @@ const labels = {
   },
   win: {
     title: ['Congratulations!', 'You did it!', 'Great!', 'Nice Try!', 'Hell Yeah!', 'Very Good!', 'Awesome!'],
+    newRecord: '🎉 New Record!',
     currentTime: 'Your time',
     bestResult: 'Your best time',
     challengeYourself: 'Challenge yourself with',

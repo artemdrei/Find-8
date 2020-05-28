@@ -2,8 +2,8 @@
 
 :global {
   #body {
-    background-color: #171717;
-    background-image: url('https://www.transparenttextures.com/patterns/black-felt.png');
+    background-color: var(--base-strong);
+    background-image: url('../../assets/images/black-felt.png');
   }
 }
 

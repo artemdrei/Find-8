@@ -10,10 +10,8 @@ import s from './styles.scss';
 import MedalIcon from '@root/assets/icons/medal.svg';
 import CheckIcon from '@root/assets/icons/check.svg';
 
-const Score: React.FC<IProps> = ({ startTime, endTime, level }) => {
-  const score = JSON.parse(localStorage.getItem('find8') as string);
+const Score: React.FC<IProps> = ({ startTime, endTime, bestResult }) => {
   const { time, units } = getSeekDuration(startTime, endTime);
-  const bestResult = score[level] ? getSeekDuration(score[level].startTime, score[level].endTime) : null;
 
   return (
     <>
@@ -25,15 +23,13 @@ const Score: React.FC<IProps> = ({ startTime, endTime, level }) => {
           {units}
         </b>
       </div>
-      {bestResult ? (
-        <div className={s.bestScore}>
-          <MedalIcon className={s.medalIcon} /> {labels.win.bestResult}:{' '}
-          <b>
-            {bestResult.time}
-            {bestResult.units}
-          </b>
-        </div>
-      ) : null}
+      <div className={s.bestScore}>
+        <MedalIcon className={s.medalIcon} /> {labels.win.bestResult}:{' '}
+        <b>
+          {bestResult.time}
+          {bestResult.units}
+        </b>
+      </div>
     </>
   );
 };

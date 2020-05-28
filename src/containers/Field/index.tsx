@@ -20,12 +20,9 @@ const Field: React.FC<IProps> = (props) => {
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
   const [matrix, setMatrix] = useState<TMatrix>([]);
   const { rows, columns } = CONFIG.levels[level];
+
   const { defaultValue, seekedValue, cellSize } = CONFIG.field;
   const [height, width] = useFieldSize();
-
-  useEffect(() => {
-    initMatrix(rows, columns, defaultValue);
-  }, [width, height]);
 
   useEffect(() => {
     if (level === 'insanity') {
@@ -36,7 +33,7 @@ const Field: React.FC<IProps> = (props) => {
 
     // TODO:: Animate content on time change (browser don't animate same keyframe on rerender)
     setFadeIn(fadeIn === s.fadeIn ? s.fadeIn2 : s.fadeIn);
-  }, [startTime, level]);
+  }, [width, height, startTime, level]);
 
   const initMatrix = (
     rows: number,
@@ -46,15 +43,16 @@ const Field: React.FC<IProps> = (props) => {
   ) => {
     if (!width || !height || !startTime) return;
 
-    const maxWidthRows = Math.floor(width / cellSize);
-    const maxHeightRows = Math.floor(height / cellSize);
+    const maxRows = Math.floor(width / cellSize);
+    const maxColumns = Math.floor(height / cellSize);
 
-    let r = rows > maxWidthRows ? maxWidthRows : rows;
-    let c = rows > maxHeightRows ? maxHeightRows : columns;
+    // Fit field in screen size
+    let r = rows > maxRows ? maxRows : rows;
+    let c = columns > maxColumns ? maxColumns : columns;
 
     if (isFullScreen) {
-      r = maxWidthRows;
-      c = maxHeightRows;
+      r = maxRows;
+      c = maxColumns;
     }
 
     const matrix = compose(

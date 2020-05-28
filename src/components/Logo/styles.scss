@@ -1,5 +1,5 @@
 .logo {
-  font-size: 24px;
+  font-size: 33px;
 
   &:hover {
     .eight {
@@ -8,11 +8,11 @@
       &::before {
         content: '';
         position: absolute;
-        left: 14px;
-        top: 18px;
+        left: 18px;
+        top: 14px;
         display: block;
-        width: 2px;
-        height: 2px;
+        width: 3px;
+        height: 3px;
         background-color: var(--base-strong-down);
         border-radius: 50%;
         animation: blink 2000ms ease-in;
@@ -21,11 +21,11 @@
       &::after {
         content: '';
         position: absolute;
-        left: 14px;
-        top: 11px;
+        left: 18px;
+        top: 24px;
         display: block;
-        width: 2px;
-        height: 2px;
+        width: 3px;
+        height: 3px;
         background-color: var(--base-strong-down);
         border-radius: 50%;
         animation: blink 2000ms ease-in;
@@ -34,16 +34,16 @@
       .mouth {
         position: absolute;
         z-index: 1;
-        top: 10px;
-        left: 10px;
+        top: 38%;
+        left: 38%;
         right: 0;
         height: 11px;
-        width: 14px;
+        width: 22px;
         margin: 0 auto;
         border-bottom: 2px solid var(--base-strong-down);
         border-radius: 100%;
         transform: rotate(-90deg);
-        animation: mouthFadeIn 200ms ease-in;
+        animation: mouthFadeIn__1gp1m 200ms ease-in;
       }
     }
   }
@@ -61,9 +61,13 @@
   display: inline-block;
   transform: rotate(45deg);
   border-radius: 8px;
-  padding: 0.1em 0.35em 0.1em;
+  width: 40px;
+  height: 40px;
+  padding: 0.15em 0 0.1em;
   text-align: center;
   font-weight: 700;
+  line-height: 1;
+  vertical-align: middle;
   color: var(--base-strong-down);
   background-color: var(--success-weak);
   transition: transform 200ms ease-out;
