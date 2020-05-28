@@ -40,7 +40,6 @@ const ActionPanel: React.FC<IProps> = (props) => {
           <Button variant="primary" className={s.btn} label={labels.buttons.play} onClick={onPlay} />
         )}
       </div>
-
       <h5 className={s.title}>{labels.general.levels}</h5>
       <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
     </div>

@@ -4,6 +4,7 @@ import { TLevel } from '@root/typings';
 
 import Content from '@root/containers/Content';
 import ActionPanel from '@root/containers/ActionPanel';
+import Logo from '@root/components/Logo';
 
 import s from './styles.scss';
 
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <>
       <div className={s.game}>
+        <Logo className={s.logo} />
         <Content
           level={level}
           hasAnswerBtn={hasAnswerBtn}

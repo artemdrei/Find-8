@@ -11,8 +11,8 @@ const field: TField = {
 const levels: TLevels = {
   easy: {
     label: labels.levels.easy,
-    rows: 6,
-    columns: 6,
+    rows: 5,
+    columns: 5,
     nextLevel: 'medium',
   },
   medium: {
@@ -30,13 +30,13 @@ const levels: TLevels = {
   ninja: {
     label: labels.levels.ninja,
     rows: 25,
-    columns: 25,
+    columns: 24,
     nextLevel: 'insanity',
   },
   insanity: {
     label: labels.levels.ninja,
     rows: 25,
-    columns: 25,
+    columns: 24,
     nextLevel: '',
   },
 };
