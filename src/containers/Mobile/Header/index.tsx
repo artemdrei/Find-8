@@ -2,14 +2,12 @@ import React from 'react';
 
 import { IProps } from './types';
 
-import Levels from './Levels';
+import Select from '../Select';
 import PlayButton from '@root/containers/PlayButton';
 
-import labels from '@root/i18n';
+import s from './s.module.scss';
 
-import s from './styles.scss';
-
-const ActionPanel: React.FC<IProps> = (props) => {
+const MobileHeader: React.FC<IProps> = (props) => {
   const {
     startTime,
     endTime,
@@ -22,21 +20,21 @@ const ActionPanel: React.FC<IProps> = (props) => {
   } = props;
 
   return (
-    <div className={s.actionPanel}>
-      <div className={s.playBtn}>
+    <div className={s.header}>
+      <div className={s.wrapper}>
         <PlayButton
           startTime={startTime}
           endTime={endTime}
           hasAnswerBtn={hasAnswerBtn}
+          className={s.playBtn}
           toggleAnswerBtn={toggleAnswerBtn}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
         />
+        <Select level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
       </div>
-      <h5 className={s.title}>{labels.general.levels}</h5>
-      <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
     </div>
   );
 };
 
-export default ActionPanel;
+export default MobileHeader;

@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 import { TLevel } from '@root/typings';
 
+import { mobileCheck } from '@root/utils';
+
 import Content from '@root/containers/Content';
 import ActionPanel from '@root/containers/ActionPanel';
 import Logo from '@root/components/Logo';
+import MobileHeader from '../Mobile/Header';
 
 import s from './styles.scss';
+import If from '@root/components/If';
 
 const App = () => {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [hasAnswerBtn, toggleAnswerBtn] = useState(false);
   const [level, setLevel] = useState<TLevel>('easy');
+  const isMobile = mobileCheck();
+  const classNameIsMobile = isMobile ? 'isMobile' : '';
 
   useEffect(() => {
     setEndTime(0);
@@ -24,8 +30,20 @@ const App = () => {
 
   return (
     <>
-      <div className={s.game}>
+      <div className={[s.game, classNameIsMobile].join(' ')}>
         <Logo className={s.logo} />
+        <If condition={isMobile}>
+          <MobileHeader
+            level={level}
+            hasAnswerBtn={hasAnswerBtn}
+            startTime={startTime}
+            endTime={endTime}
+            setStartTime={setStartTime}
+            setEndTime={setEndTime}
+            toggleAnswerBtn={toggleAnswerBtn}
+            setLevel={setLevel}
+          />
+        </If>
         <Content
           level={level}
           hasAnswerBtn={hasAnswerBtn}
@@ -35,16 +53,18 @@ const App = () => {
           setStartTime={setStartTime}
           setEndTime={setEndTime}
         />
-        <ActionPanel
-          level={level}
-          hasAnswerBtn={hasAnswerBtn}
-          startTime={startTime}
-          endTime={endTime}
-          setStartTime={setStartTime}
-          setEndTime={setEndTime}
-          toggleAnswerBtn={toggleAnswerBtn}
-          setLevel={setLevel}
-        />
+        <If condition={!isMobile}>
+          <ActionPanel
+            level={level}
+            hasAnswerBtn={hasAnswerBtn}
+            startTime={startTime}
+            endTime={endTime}
+            setStartTime={setStartTime}
+            setEndTime={setEndTime}
+            toggleAnswerBtn={toggleAnswerBtn}
+            setLevel={setLevel}
+          />
+        </If>
       </div>
     </>
   );

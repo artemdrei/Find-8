@@ -13,17 +13,13 @@
   }
 }
 
-.mainBtn {
+.playBtn {
   border-bottom: 1px solid var(--base-strong-down);
   padding-bottom: 20px;
-}
 
-.btn {
-  width: 100%;
-}
-
-.playBtn {
-  margin-bottom: 12px;
+  button {
+    width: 100%;
+  }
 }
 
 .title {

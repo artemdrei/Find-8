@@ -8,7 +8,6 @@ import { CONFIG } from '@root/config';
 import { getRandomWord } from '@root/utils';
 import { getSeekDuration } from './utils/getSeekDuration';
 
-import Logo from '@root/components/Logo';
 import Score from './Score';
 import PlayAgain from './PlayAgain';
 
@@ -36,8 +35,7 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
   };
 
   return (
-    <div>
-      <Logo className={s.logoTop} />
+    <div className={s.win}>
       <h3 className={s.title}>{title}</h3>
       <div className={s.content}>
         <Score startTime={startTime} endTime={endTime} bestResult={bestResult} />

@@ -6,7 +6,7 @@ import s from './s.module.scss';
 
 const Button: React.FC<IProps> = (props) => {
   const { label, children, isDisabled, className, onClick, onMouseUp, onMouseDown, variant, size } = props;
-  const btnVariant = variant ? s[variant] : '';
+  const btnVariant = variant ? s[variant] : s['primary'];
   const btnSize = size ? s[size] : '';
   const classNames = [s.btn, btnVariant, btnSize, className].join(' ');
 

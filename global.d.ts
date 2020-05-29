@@ -82,6 +82,7 @@ interface Window
   onvrdisplaypresentchange: ((this: Window, ev: Event) => any) | null;
   opener: any;
   /** @deprecated */
+  readonly opera: string;
   readonly orientation: string | number;
   readonly outerHeight: number;
   readonly outerWidth: number;
