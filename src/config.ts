@@ -23,14 +23,14 @@ const levels: TLevels = {
   },
   hard: {
     label: labels.levels.hard,
-    rows: 20,
-    columns: 20,
+    rows: 15,
+    columns: 15,
     nextLevel: 'ninja',
   },
   ninja: {
     label: labels.levels.ninja,
     rows: 25,
-    columns: 24,
+    columns: 23,
     nextLevel: 'insanity',
   },
   insanity: {

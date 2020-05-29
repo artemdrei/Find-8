@@ -18,7 +18,7 @@ const App = () => {
   const [hasAnswerBtn, toggleAnswerBtn] = useState(false);
   const [level, setLevel] = useState<TLevel>('easy');
   const isMobile = mobileCheck();
-  const classNameIsMobile = isMobile ? 'isMobile' : '';
+  const idIsMobile = isMobile ? 'isMobile' : '';
 
   useEffect(() => {
     setEndTime(0);
@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <>
-      <div className={[s.game, classNameIsMobile].join(' ')}>
+      <div id={idIsMobile} className={s.game}>
         <Logo className={s.logo} />
         <If condition={isMobile}>
           <MobileHeader
