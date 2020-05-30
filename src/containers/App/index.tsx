@@ -29,44 +29,42 @@ const App = () => {
   }, [level]);
 
   return (
-    <>
-      <div id={idIsMobile} className={s.game}>
-        <Logo className={s.logo} />
-        <If condition={isMobile}>
-          <MobileHeader
-            level={level}
-            hasAnswerBtn={hasAnswerBtn}
-            startTime={startTime}
-            endTime={endTime}
-            setStartTime={setStartTime}
-            setEndTime={setEndTime}
-            toggleAnswerBtn={toggleAnswerBtn}
-            setLevel={setLevel}
-          />
-        </If>
-        <Content
+    <div id={idIsMobile} className={s.game}>
+      <Logo className={s.logo} />
+      <If condition={isMobile}>
+        <MobileHeader
           level={level}
           hasAnswerBtn={hasAnswerBtn}
           startTime={startTime}
           endTime={endTime}
-          setLevel={setLevel}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
+          toggleAnswerBtn={toggleAnswerBtn}
+          setLevel={setLevel}
         />
-        <If condition={!isMobile}>
-          <ActionPanel
-            level={level}
-            hasAnswerBtn={hasAnswerBtn}
-            startTime={startTime}
-            endTime={endTime}
-            setStartTime={setStartTime}
-            setEndTime={setEndTime}
-            toggleAnswerBtn={toggleAnswerBtn}
-            setLevel={setLevel}
-          />
-        </If>
-      </div>
-    </>
+      </If>
+      <Content
+        level={level}
+        hasAnswerBtn={hasAnswerBtn}
+        startTime={startTime}
+        endTime={endTime}
+        setLevel={setLevel}
+        setStartTime={setStartTime}
+        setEndTime={setEndTime}
+      />
+      <If condition={!isMobile}>
+        <ActionPanel
+          level={level}
+          hasAnswerBtn={hasAnswerBtn}
+          startTime={startTime}
+          endTime={endTime}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
+          toggleAnswerBtn={toggleAnswerBtn}
+          setLevel={setLevel}
+        />
+      </If>
+    </div>
   );
 };
 
