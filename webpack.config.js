@@ -72,9 +72,9 @@ const getPlugins = () => {
     }),
   ];
 
-  if (isProd) {
-    plugins.push(new BundleAnalyzerPlugin());
-  }
+  // if (isProd) {
+  //   plugins.push(new BundleAnalyzerPlugin());
+  // }
 
   return plugins;
 };
