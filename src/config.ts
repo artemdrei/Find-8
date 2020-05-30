@@ -4,7 +4,7 @@ import labels from '@root/i18n';
 
 const field: TField = {
   defaultValue: '9',
-  seekedValue: 'AA',
+  seekedValue: 'ZZ',
   cellSize: 30,
 };
 
