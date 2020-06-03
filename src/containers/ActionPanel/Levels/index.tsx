@@ -27,7 +27,6 @@ const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime,
         return (
           <RadioButton
             key={level}
-            id={level}
             name="levels"
             value={level}
             label={level}

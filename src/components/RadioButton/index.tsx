@@ -5,12 +5,11 @@ import { IProps } from './types';
 import s from './s.module.scss';
 
 const RadioButton: React.FC<IProps> = (props) => {
-  const { id, name, value, label, className = '', isChecked, isDisabled, onChange } = props;
+  const { name, value, label, className = '', isChecked, isDisabled, onChange } = props;
 
   return (
-    <label htmlFor={id} className={[s.radioButton, className].join(' ')}>
+    <label className={[s.radioButton, className].join(' ')}>
       <input
-        id={id}
         name={name}
         type="radio"
         value={value}
