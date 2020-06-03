@@ -4,13 +4,9 @@
 
 ## Stack
 
----
-
 React, TypeScript, CSS. No dependencies.
 
 ## Quickstart
-
----
 
 Install all packages
 
