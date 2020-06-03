@@ -19,8 +19,10 @@ const Levels: React.FC<IProps> = ({ setLevel, setStartTime, setEndTime }) => {
 
   return (
     <div className={s.selectWrapper}>
-      <label className={s.label}>Select Level</label>
-      <select name="level" aria-labelledby="levels" className={s.select} onChange={handleChange}>
+      <label className={s.label} id="level">
+        Select Level
+      </label>
+      <select name="level" aria-labelledby="level" className={s.select} onChange={handleChange}>
         {Object.keys(CONFIG.levels).map((level) => {
           return (
             <option key={level} value={level}>
