@@ -2,10 +2,16 @@ $headerHeight: 80px;
 
 :global {
   #isMobile {
-    height: 100vh;
     margin: 0;
     border: none;
     box-shadow: none;
+
+    html,
+    body,
+    #root,
+    #isMobile {
+      height: 100%;
+    }
 
     [id^='content'] {
       width: 100%;
