@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --watch",
+    "mobile": "cross-env NODE_ENV=development webpack-dev-server --mode development --watch --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "svg:optimize": "find ./src/assets/icons -type f -name '*.svg' -print0 | xargs -0 -n 1 -P 6 svgo",
     "ts:watch": "tsc --skipLibCheck --allowJs --watch"
