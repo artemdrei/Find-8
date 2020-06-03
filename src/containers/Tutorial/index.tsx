@@ -10,8 +10,8 @@ import s from './styles.scss';
 
 const Tutorial: React.FC<IProps> = ({ setStartTime }) => {
   return (
-    <div className={s.tutorial}>
-      <h3 className={s.title}>{labels.tutorial.title}</h3>
+    <section className={s.tutorial}>
+      <h2 className={s.title}>{labels.tutorial.title}</h2>
       <div className={s.content}>
         <div>{labels.tutorial.oneCharIsDifferent}</div>
         <div>
@@ -25,7 +25,7 @@ const Tutorial: React.FC<IProps> = ({ setStartTime }) => {
           {labels.tutorial.andTry}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

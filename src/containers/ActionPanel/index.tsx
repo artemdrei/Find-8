@@ -10,16 +10,7 @@ import labels from '@root/i18n';
 import s from './styles.scss';
 
 const ActionPanel: React.FC<IProps> = (props) => {
-  const {
-    startTime,
-    endTime,
-    hasAnswerBtn,
-    level,
-    toggleAnswerBtn,
-    setStartTime,
-    setLevel,
-    setEndTime,
-  } = props;
+  const { startTime, endTime, level, setStartTime, setLevel, setEndTime } = props;
 
   return (
     <div className={s.actionPanel}>
@@ -27,13 +18,11 @@ const ActionPanel: React.FC<IProps> = (props) => {
         <PlayButton
           startTime={startTime}
           endTime={endTime}
-          hasAnswerBtn={hasAnswerBtn}
-          toggleAnswerBtn={toggleAnswerBtn}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
         />
       </div>
-      <h5 className={s.title}>{labels.general.levels}</h5>
+      <h3 className={s.title}>{labels.general.levels}</h3>
       <Levels level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
     </div>
   );

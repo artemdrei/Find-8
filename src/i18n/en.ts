@@ -24,6 +24,7 @@ const labels = {
     retryInsanity: 'Improve your best score! ',
   },
   levels: {
+    fieldset: 'Please, select difficulty level',
     easy: 'Easy',
     medium: 'Medium',
     hard: 'Hard',

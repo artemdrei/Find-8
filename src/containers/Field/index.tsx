@@ -16,7 +16,7 @@ import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 import s from './styles.scss';
 
 const Field: React.FC<IProps> = (props) => {
-  const { level, hasAnswerBtn, startTime, setEndTime } = props;
+  const { level, startTime, endTime, setEndTime } = props;
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
   const [matrix, setMatrix] = useState<TMatrix>([]);
   const { rows, columns } = CONFIG.levels[level];
@@ -65,7 +65,7 @@ const Field: React.FC<IProps> = (props) => {
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Prevent show win page if click on highlighted answer
-    if (hasAnswerBtn) return;
+    if (startTime === endTime) return;
 
     const { content } = (e.target as HTMLDivElement).dataset;
     const correctAnswer = content === seekedValue.toString();
@@ -87,7 +87,7 @@ const Field: React.FC<IProps> = (props) => {
           return (
             <div className={s.row} key={'row' + i}>
               {row.map((val, j) => {
-                const marked = hasAnswerBtn && val === seekedValue ? s.highlighted : '';
+                const marked = startTime === endTime && val === seekedValue ? s.highlighted : '';
                 return <div className={[s.cell, marked].join(' ')} key={'cell' + j} data-content={val}></div>;
               })}
             </div>

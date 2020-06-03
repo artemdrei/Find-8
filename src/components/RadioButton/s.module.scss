@@ -1,0 +1,41 @@
+.radioButton {
+  input {
+    width: 16px;
+    height: 16px;
+    margin: 7px 6px 8px 4px;
+    vertical-align: middle;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 50%;
+    border: 1px solid var(--faint-weak-up);
+    transition: 80ms all ease-out;
+
+    outline: none;
+
+    &:enabled {
+      &:hover {
+        border-color: var(--faint-strong);
+      }
+
+      &:checked {
+        border: 5px solid var(--accent-strong);
+      }
+
+      &:active,
+      &:focus {
+        box-shadow: 0 0 0 0.15rem var(--accent-weak-up);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.6;
+
+      + .label {
+        opacity: 0.6;
+      }
+    }
+  }
+}

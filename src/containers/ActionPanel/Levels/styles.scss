@@ -1,54 +1,19 @@
 .radioGroup {
+  margin: 0;
+  padding: 0;
+  border: none;
   color: var(--font);
+
+  legend {
+    font-size: 0;
+  }
 
   label {
     display: inline-block;
-    width: calc(100% - 30px);
+    width: 100%;
   }
 }
 
 .radioButton {
   margin-left: -4px;
-}
-
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1);
-  }
-
-  16% {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.2) translateX(7px);
-  }
-
-  33% {
-    opacity: 0;
-    visibility: hidden;
-
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.2) translateX(7px);
-  }
-
-  66% {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1);
-  }
-
-  82% {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.animate {
-  animation: slideIn 2600ms ease-in;
 }

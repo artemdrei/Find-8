@@ -7,22 +7,21 @@ import Button from '@root/components/Button';
 import labels from '@root/i18n';
 
 const PlayButton: React.FC<IProps> = (props) => {
-  const { startTime, endTime, hasAnswerBtn, className, toggleAnswerBtn, setStartTime, setEndTime } = props;
+  const { startTime, endTime, className, setStartTime, setEndTime } = props;
   const btnClassName = className ? className : '';
 
   const onPlay = () => {
     setStartTime(+new Date());
     setEndTime(0);
-    toggleAnswerBtn(false);
   };
 
   const onGiveUp = () => {
-    toggleAnswerBtn(true);
+    setEndTime(startTime);
   };
 
   return (
     <>
-      {startTime && !endTime && !hasAnswerBtn ? (
+      {startTime && !endTime ? (
         <Button
           variant="primary"
           label={labels.buttons.showAnswer}

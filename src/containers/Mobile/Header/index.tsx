@@ -8,16 +8,7 @@ import PlayButton from '@root/containers/PlayButton';
 import s from './s.module.scss';
 
 const MobileHeader: React.FC<IProps> = (props) => {
-  const {
-    startTime,
-    endTime,
-    hasAnswerBtn,
-    level,
-    toggleAnswerBtn,
-    setStartTime,
-    setLevel,
-    setEndTime,
-  } = props;
+  const { startTime, endTime, level, setStartTime, setLevel, setEndTime } = props;
 
   return (
     <div className={s.header}>
@@ -25,9 +16,7 @@ const MobileHeader: React.FC<IProps> = (props) => {
         <PlayButton
           startTime={startTime}
           endTime={endTime}
-          hasAnswerBtn={hasAnswerBtn}
           className={s.playBtn}
-          toggleAnswerBtn={toggleAnswerBtn}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
         />

@@ -10,17 +10,20 @@ import If from '@root/components/If';
 import s from './styles.scss';
 
 const Content: React.FC<IProps> = (props) => {
-  const { level, hasAnswerBtn, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
+  const { level, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
+  const notStarted = startTime === 0;
+  const isFinished = endTime > 0;
+  const isGiveUp = startTime === endTime;
 
   return (
     <div id="content" className={s.content}>
       {/* Tutorial */}
-      <If condition={startTime === 0}>
+      <If condition={notStarted}>
         <Tutorial setStartTime={setStartTime} />
       </If>
 
       {/* Win*/}
-      <If condition={!!endTime}>
+      <If condition={isFinished && !isGiveUp}>
         <div className={s.fadeIn}>
           <Win
             level={level}
@@ -34,8 +37,8 @@ const Content: React.FC<IProps> = (props) => {
       </If>
 
       {/* Matrix field */}
-      <If condition={!!startTime && !endTime}>
-        <Field level={level} hasAnswerBtn={hasAnswerBtn} startTime={startTime} setEndTime={setEndTime} />
+      <If condition={!isFinished || isGiveUp}>
+        <Field level={level} startTime={startTime} endTime={endTime} setEndTime={setEndTime} />
       </If>
     </div>
   );

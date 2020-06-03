@@ -35,13 +35,13 @@ const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setSt
   };
 
   return (
-    <>
-      <h3 className={s.title}>{title}</h3>
+    <section>
+      <h2 className={s.title}>{title}</h2>
       <div className={s.content}>
         <Score startTime={startTime} endTime={endTime} bestResult={bestResult} />
         <PlayAgain level={level} handleNextLevel={handleNextLevel} handleRetry={handleRetry} />
       </div>
-    </>
+    </section>
   );
 };
 

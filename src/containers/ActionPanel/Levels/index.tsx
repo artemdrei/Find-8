@@ -1,44 +1,42 @@
 import React from 'react';
 
 import { IProps } from './types';
-import { TScore } from '@root/typings';
+import { TLevel } from '@root/typings';
 import { CONFIG } from '@root/config';
 
-import { TLevel } from '@root/typings';
+import RadioButton from '@root/components/RadioButton';
+
+import labels from '@root/i18n';
 
 import s from './styles.scss';
 
 const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime, setEndTime }) => {
+  console.log('selectedLevel:', selectedLevel);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('change');
     const level = e.target.value as TLevel;
     setLevel(level);
     setStartTime(+new Date());
     setEndTime(0);
   };
 
-  const score: TScore = JSON.parse(localStorage.getItem('find8') as string);
-  const noInsanityLevel = !score || !score.ninja;
-
   return (
-    <div className={s.radioGroup}>
+    <fieldset className={s.radioGroup}>
+      <legend>{labels.levels.fieldset}</legend>
       {Object.keys(CONFIG.levels).map((level) => {
-        if (noInsanityLevel && level === 'insanity') return null;
-        // const animationClassName = level === 'insanity' ? s.animate : ''; // TODO
         return (
-          <div className={s.radioButton} key={level}>
-            <input
-              type="radio"
-              name="levels"
-              id={level}
-              value={level}
-              checked={level === selectedLevel}
-              onChange={handleChange}
-            />
-            <label htmlFor={level}>{level}</label>
-          </div>
+          <RadioButton
+            key={level}
+            id={level}
+            name="levels"
+            value={level}
+            label={level}
+            isChecked={level === selectedLevel}
+            onChange={handleChange}
+          />
         );
       })}
-    </div>
+    </fieldset>
   );
 };
 

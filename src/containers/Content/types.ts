@@ -4,7 +4,6 @@ export type TMatrix = number[][];
 
 export interface IProps {
   level: TLevel;
-  hasAnswerBtn: boolean;
   endTime: number;
   startTime: number;
   setLevel: (level: TLevel) => void;
