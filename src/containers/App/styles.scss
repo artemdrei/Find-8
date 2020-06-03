@@ -5,6 +5,10 @@
     background-color: var(--base-strong);
     background-image: url('../../assets/images/black-felt.png');
   }
+
+  #root {
+    height: 100%;
+  }
 }
 
 .game {

@@ -5,13 +5,8 @@ $headerHeight: 80px;
     margin: 0;
     border: none;
     box-shadow: none;
-
-    html,
-    body,
-    #root,
-    #isMobile {
-      height: 100%;
-    }
+    overflow: hidden;
+    height: 100%;
 
     [id^='content'] {
       width: 100%;
@@ -51,6 +46,8 @@ $headerHeight: 80px;
   .header {
     [class^='select'] {
       font-size: 0;
+      width: 40px;
+      padding: 0;
       background-position: right 13px top 58%;
     }
   }
