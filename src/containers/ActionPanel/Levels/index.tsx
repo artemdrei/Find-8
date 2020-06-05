@@ -11,9 +11,7 @@ import labels from '@root/i18n';
 import s from './styles.scss';
 
 const Level: React.FC<IProps> = ({ level: selectedLevel, setLevel, setStartTime, setEndTime }) => {
-  console.log('selectedLevel:', selectedLevel);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('change');
     const level = e.target.value as TLevel;
     setLevel(level);
     setStartTime(+new Date());
