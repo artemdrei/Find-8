@@ -1,0 +1,25 @@
+.footer {
+  border-top: 1px solid var(--base-strong-down);
+  padding-top: 20px;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  color: var(--font);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.gearIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+
+  path {
+    fill: var(--font-weak);
+  }
+}

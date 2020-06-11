@@ -1,4 +1,7 @@
 .actionPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 25%;
   min-width: 200px;
   padding: 20px 24px;
@@ -26,5 +29,4 @@
   margin-top: 20px;
   margin-bottom: 4px;
   padding-top: 8px;
-  color: var(--font-weak);
 }

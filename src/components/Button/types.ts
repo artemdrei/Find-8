@@ -1,9 +1,9 @@
-export type TBtnVariant = 'primary' | 'link';
+export type TBtnVariant = 'primary' | 'link' | 'outline';
 
 export interface IProps {
   label?: string;
   size?: 'large';
-  variant?: TBtnVariant;
+  variant?: TBtnVariant | TBtnVariant[];
   children?: React.ReactNode;
   isDisabled?: boolean;
   className?: string;

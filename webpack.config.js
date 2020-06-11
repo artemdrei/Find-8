@@ -99,6 +99,7 @@ const config = {
   devServer: {
     port: 4200,
     hot: isDev,
+    historyApiFallback: true,
   },
   devtool: isDev ? 'source-map' : '',
   module: {

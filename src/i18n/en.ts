@@ -3,6 +3,7 @@ const labels = {
     or: 'or',
     click: 'Click',
     levels: 'Levels',
+    settings: 'Settings',
   },
   buttons: {
     nextLevel: 'Next Level',
@@ -30,6 +31,9 @@ const labels = {
     hard: 'Hard',
     ninja: 'Ninja',
     insanity: 'Insanity',
+  },
+  settings: {
+    settings: 'Settings',
   },
 };
 
