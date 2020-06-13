@@ -1,4 +1,4 @@
-import { TMatrix } from '../containers/Field/types';
+import { TMatrix } from '../containers/Pages/Game/Field/types';
 
 /**
  *

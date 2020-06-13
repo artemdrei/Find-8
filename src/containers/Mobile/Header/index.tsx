@@ -3,7 +3,7 @@ import React from 'react';
 import { IProps } from './types';
 
 import Select from '../Select';
-import PlayButton from '@root/containers/PlayButton';
+import PlayButton from '@root/containers/Pages/Game/PlayButton';
 
 import s from './s.module.scss';
 

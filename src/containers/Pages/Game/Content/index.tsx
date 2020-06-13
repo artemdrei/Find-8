@@ -2,9 +2,9 @@ import React from 'react';
 
 import { IProps } from './types';
 
-import Tutorial from '@root/containers/Tutorial';
-import Win from '@root/containers/Win';
-import Field from '@root/containers/Field';
+import Tutorial from '@root/containers/Pages/Game/Tutorial';
+import Win from '@root/containers/Pages/Game/Win';
+import Field from '@root/containers/Pages/Game/Field';
 import If from '@root/components/If';
 
 import s from './styles.scss';

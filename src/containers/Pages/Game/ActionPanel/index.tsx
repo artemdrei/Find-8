@@ -4,7 +4,7 @@ import { IProps } from './types';
 
 import Levels from './Levels';
 import Footer from './Footer';
-import PlayButton from '@root/containers/PlayButton';
+import PlayButton from '@root/containers/Pages/Game/PlayButton';
 
 import { I18nContext } from '@root/i18n';
 

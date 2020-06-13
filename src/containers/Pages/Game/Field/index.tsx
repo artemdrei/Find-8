@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { IProps, TMatrix } from './types';
 
 import If from '@root/components/If';
-import MatrixRain from '@root/containers/MatrixRain';
+import MatrixRain from '@root/containers/Pages/Game/MatrixRain';
 
 import { CONFIG } from '@root/config';
 import { generateMatrix } from '@root/utils';
