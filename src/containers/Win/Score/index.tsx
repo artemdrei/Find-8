@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { IProps } from './types';
 
 import { getSeekDuration } from '../utils/getSeekDuration';
 
-import labels from '@root/i18n';
+import { I18nContext } from '@root/i18n';
 
 import s from './styles.scss';
 import MedalIcon from '@root/assets/icons/medal.svg';
 import CheckIcon from '@root/assets/icons/check.svg';
 
 const Score: React.FC<IProps> = ({ startTime, endTime, bestResult }) => {
+  const { labels } = useContext(I18nContext);
   const { time, units } = getSeekDuration(startTime, endTime);
 
   return (

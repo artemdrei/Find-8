@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { IProps } from './types';
 
 import Button from '@root/components/Button';
 
-import labels from '@root/i18n';
+import { I18nContext } from '@root/i18n';
 
 const PlayButton: React.FC<IProps> = (props) => {
+  const { labels } = useContext(I18nContext);
   const { startTime, endTime, className, setStartTime, setEndTime } = props;
   const btnClassName = className ? className : '';
 

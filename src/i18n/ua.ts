@@ -8,7 +8,8 @@ const labels = {
     nextLevel: 'Наступний рівень',
     retry: 'Знову цей',
     play: 'Грати',
-    showAnswer: 'Відповідь',
+    showAnswer: 'Показати відповідь',
+    back: 'Назад',
   },
   tutorial: {
     title: 'Правила',
@@ -33,6 +34,8 @@ const labels = {
   },
   settings: {
     settings: 'Налаштування',
+    language: 'Мова',
+    backDescription: 'до гри',
   },
 };
 

@@ -10,6 +10,7 @@ const labels = {
     retry: 'Retry',
     play: 'Play',
     showAnswer: 'Show Answer',
+    back: 'Back',
   },
   tutorial: {
     title: 'Tutorial',
@@ -34,6 +35,8 @@ const labels = {
   },
   settings: {
     settings: 'Settings',
+    language: 'Language',
+    backDescription: 'to the game',
   },
 };
 

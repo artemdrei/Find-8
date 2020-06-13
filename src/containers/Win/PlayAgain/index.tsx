@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { IProps } from './types';
 import { TScore } from '@root/typings';
@@ -6,11 +6,12 @@ import { TScore } from '@root/typings';
 import Button from '@root/components/Button';
 import If from '@root/components/If';
 
-import labels from '@root/i18n';
+import { I18nContext } from '@root/i18n';
 
 import s from './styles.scss';
 
 const PlayAgain: React.FC<IProps> = ({ handleNextLevel, handleRetry, level }) => {
+  const { labels } = useContext(I18nContext);
   const score: TScore = JSON.parse(localStorage.getItem('find8') as string);
   const hasInsanityLevel = level === 'insanity' && !!score?.insanity;
 

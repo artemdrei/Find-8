@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { IProps } from './types';
 
@@ -6,12 +6,13 @@ import Levels from './Levels';
 import Footer from './Footer';
 import PlayButton from '@root/containers/PlayButton';
 
-import labels from '@root/i18n';
+import { I18nContext } from '@root/i18n';
 
 import s from './styles.scss';
 
 const ActionPanel: React.FC<IProps> = (props) => {
   const { startTime, endTime, level, setStartTime, setLevel, setEndTime } = props;
+  const { labels } = useContext(I18nContext);
 
   return (
     <div className={s.actionPanel}>

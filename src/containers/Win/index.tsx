@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { TLevel } from '@root/typings';
 import { IProps } from './types';
@@ -11,11 +11,12 @@ import { getSeekDuration } from './utils/getSeekDuration';
 import Score from './Score';
 import PlayAgain from './PlayAgain';
 
-import labels from '@root/i18n';
+import { I18nContext } from '@root/i18n';
 
 import s from './styles.scss';
 
 const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setStartTime, setEndTime }) => {
+  const { labels } = useContext(I18nContext);
   const result = JSON.parse(localStorage.getItem('find8') as string);
   const { time } = getSeekDuration(startTime, endTime);
   const bestResult = getSeekDuration(result[level].startTime, result[level].endTime);
