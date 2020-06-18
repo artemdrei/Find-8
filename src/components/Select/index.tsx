@@ -4,7 +4,9 @@ import { IProps } from './types';
 
 import s from './s.module.scss';
 
-const Levels: React.FC<IProps> = ({ name, ariaLabel, variant = '', className, data, onChange }) => {
+const Levels: React.FC<IProps> = (props) => {
+  const { name, ariaLabel, variant = '', className, data, defaultValue, onChange } = props;
+
   return (
     <div>
       <label className={s.label} id={ariaLabel}>
@@ -15,6 +17,7 @@ const Levels: React.FC<IProps> = ({ name, ariaLabel, variant = '', className, da
         aria-labelledby={ariaLabel}
         className={[s.select, s[variant], className].join(' ').trim()}
         onChange={onChange}
+        value={defaultValue}
       >
         {data.map(({ value, label }, i) => {
           return (

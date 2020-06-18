@@ -26,16 +26,20 @@ const labels = {
   },
   levels: {
     fieldset: 'Виберіть рівень складності',
-    easy: 'Легко',
+    easy: 'Легкий',
     medium: 'Помірний',
-    hard: 'Важко',
+    hard: 'Важкий',
     ninja: 'Ніндзя',
     insanity: 'Божевілля',
   },
   settings: {
     settings: 'Налаштування',
     language: 'Мова',
+    theme: 'Тема',
     backDescription: 'до гри',
+    avatar: {
+      alt: 'Рандомна аватарка',
+    },
   },
 };
 

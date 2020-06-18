@@ -1,6 +1,6 @@
 import { TConfig, TLevels, TField } from './typings';
 
-import labels from '@root/i18n';
+import labels from '@root/i18n/en';
 
 const field: TField = {
   defaultValue: '9',

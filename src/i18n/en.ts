@@ -36,7 +36,11 @@ const labels = {
   settings: {
     settings: 'Settings',
     language: 'Language',
+    theme: 'Theme',
     backDescription: 'to the game',
+    avatar: {
+      alt: 'Random avatar',
+    },
   },
 };
 

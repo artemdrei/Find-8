@@ -4,10 +4,11 @@ type TOption = {
 };
 
 export interface IProps {
+  data: TOption[];
   name: string;
   ariaLabel: string;
   variant?: 'outline';
   className?: string;
-  data: TOption[];
+  defaultValue?: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

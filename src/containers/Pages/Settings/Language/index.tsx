@@ -1,25 +1,36 @@
 import React, { useContext } from 'react';
 
+import { IProps } from './types';
+
 import Select from '@root/components/Select';
 
-import s from './s.module.scss';
-
 import { I18nContext, translations } from '@root/i18n';
+import { TLanguages } from '@root/i18n/context/types';
 
-const Languages = () => {
-  const { dispatch } = useContext(I18nContext);
-  const { labels } = useContext(I18nContext);
+const Languages: React.FC<IProps> = ({ language, setLanguage }) => {
+  // @ts-ignore
+  const { labels, dispatch } = useContext(I18nContext);
   const data = Object.keys(translations).map((key) => ({ label: key, value: key }));
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch({ type: 'SET_LANGUAGE', payload: e.target.value });
+    const langCode = e.target.value as TLanguages;
+    const storage = localStorage.getItem('find8') || '';
+    const updatedData = { ...JSON.parse(storage), language: langCode };
+    localStorage.setItem('find8', JSON.stringify(updatedData));
+
+    setLanguage(langCode);
+    dispatch({ type: 'SET_LANGUAGE', payload: langCode });
   };
 
   return (
-    <div className={s.row}>
-      <h4 className={s.title}>{labels.settings.language}</h4>
-      <Select name="languages" variant="outline" ariaLabel="languages" data={data} onChange={handleChange} />
-    </div>
+    <Select
+      data={data}
+      name="languages"
+      variant="outline"
+      ariaLabel="languages"
+      defaultValue={language}
+      onChange={handleChange}
+    />
   );
 };
 
