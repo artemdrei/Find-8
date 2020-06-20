@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { TLanguages } from '@root/i18n/context/types';
 
 import Header from './Header';
+import Row from './Row';
 import Avatar from './Avatar';
 import Language from './Language';
 
@@ -25,25 +26,12 @@ const Settings = () => {
     <div className={s.settings}>
       <Header />
       <div className={s.container}>
-        <div className={s.avatar}>
-          <Avatar className={s.avatar} alt={labels.settings.avatar.alt} />
-        </div>
-        <div className={s.row}>
-          <div className={s.cell}>
-            <h4 className={s.title}>{labels.settings.language}</h4>
-          </div>
-          <div className={s.cell}>
-            <Language language={language} setLanguage={setLanguage} />
-          </div>
-        </div>
-        <div className={s.row}>
-          <div className={s.cell}>
-            <h4 className={s.title}>{labels.settings.theme}</h4>
-          </div>
-          <div className={s.cell}>
-            <Theme />
-          </div>
-        </div>
+        <Avatar className={s.avatar} alt={labels.settings.avatar.alt} />
+        <Row
+          left={<h4 className={s.title}>{labels.settings.language}</h4>}
+          right={<Language language={language} setLanguage={setLanguage} />}
+        />
+        <Row left={<h4 className={s.title}>{labels.settings.theme}</h4>} right={<Theme />} />
       </div>
     </div>
   );
