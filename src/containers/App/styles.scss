@@ -1,5 +1,11 @@
 @import '../../assets/styles/index.scss';
 
+:global {
+  #root {
+    height: 100%;
+  }
+}
+
 .game {
   height: 100vh;
   padding: 24px 12px;

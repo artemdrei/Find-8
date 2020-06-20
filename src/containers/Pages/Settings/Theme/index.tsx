@@ -1,23 +1,16 @@
 import React from 'react';
 
-import { options } from './data';
-
-import Select from '@root/components/Select';
+import Switcher from '@root/components/Switcher';
 
 const Theme = () => {
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const html = document.documentElement;
+    const theme = e.target.checked ? 'light' : '';
 
-    if (e.target.value === 'light') {
-      html.setAttribute('data-theme', 'light');
-    } else {
-      html.setAttribute('data-theme', 'dark');
-    }
+    html.setAttribute('data-theme', theme);
   };
 
-  return (
-    <Select data={options} name="languages" variant="outline" ariaLabel="languages" onChange={handleChange} />
-  );
+  return <Switcher onChange={handleChange} />;
 };
 
 export default Theme;
