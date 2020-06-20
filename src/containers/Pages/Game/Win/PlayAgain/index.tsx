@@ -12,7 +12,8 @@ import s from './styles.scss';
 
 const PlayAgain: React.FC<IProps> = ({ handleNextLevel, handleRetry, level }) => {
   const { labels } = useContext(I18nContext);
-  const score: TScore = JSON.parse(localStorage.getItem('find8') as string);
+  const storage = localStorage.getItem('find8') || '{}';
+  const score: TScore = JSON.parse(storage);
   const hasInsanityLevel = level === 'insanity' && !!score?.insanity;
 
   return (

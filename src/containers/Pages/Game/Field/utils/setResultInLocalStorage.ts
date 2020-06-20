@@ -7,7 +7,8 @@ import { TLevel } from '@root/typings';
 
 // TODO:: refactoring later
 export const setResultInLocalStorage = (level: TLevel, startTime: number, endTime: number) => {
-  const score = JSON.parse(localStorage.getItem('find8') as string);
+  const storage = localStorage.getItem('find8') || '{}';
+  const score = JSON.parse(storage) || {};
   const seekDuration = endTime - startTime;
 
   if (!score) {

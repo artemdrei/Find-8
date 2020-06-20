@@ -8,7 +8,7 @@ import { TLanguages } from './types';
 export const translations = { en, ua };
 const getTranslate = (langCode: TLanguages) => translations[langCode];
 
-const storage = localStorage.getItem('find8') || '';
+const storage = localStorage.getItem('find8') || '{}';
 const lang = JSON.parse(storage)?.language || 'en';
 const initialState = {
   langCode: lang,

@@ -9,13 +9,14 @@ import Language from './Language';
 import s from './styles.scss';
 
 import { I18nContext } from '@root/i18n';
+import Theme from './Theme';
 
 const Settings = () => {
   const [language, setLanguage] = useState<TLanguages>('en');
   const { labels } = useContext(I18nContext);
 
   useEffect(() => {
-    const storage = localStorage.getItem('find8') || '';
+    const storage = localStorage.getItem('find8') || '{}';
     const langCode = JSON.parse(storage)['language'] || 'en';
     setLanguage(langCode);
   }, []);
@@ -39,7 +40,9 @@ const Settings = () => {
           <div className={s.cell}>
             <h4 className={s.title}>{labels.settings.theme}</h4>
           </div>
-          <div className={s.cell}>TODO::: theme</div>
+          <div className={s.cell}>
+            <Theme />
+          </div>
         </div>
       </div>
     </div>

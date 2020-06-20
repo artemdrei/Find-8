@@ -5,7 +5,7 @@
   width: 25%;
   min-width: 200px;
   padding: 20px 24px;
-  border-left: 1px solid var(--base-strong-down);
+  border-left: 1px solid var(--border);
 
   [class^='custom-control'] {
     margin-bottom: 2px;
@@ -17,7 +17,7 @@
 }
 
 .playBtn {
-  border-bottom: 1px solid var(--base-strong-down);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 20px;
 
   button {

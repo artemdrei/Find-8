@@ -14,11 +14,13 @@ const App = () => {
 
   return (
     <main id={platformId} className={s.game}>
-      <Switch>
-        <Route path="/game" component={Game} />
-        <Route path="/settings" component={Settings} />
-        <Redirect to="/game" />
-      </Switch>
+      <div className={s.container}>
+        <Switch>
+          <Route path="/game" component={Game} />
+          <Route path="/settings" component={Settings} />
+          <Redirect to="/game" />
+        </Switch>
+      </div>
     </main>
   );
 };

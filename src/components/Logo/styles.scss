@@ -14,7 +14,7 @@
         display: block;
         width: 3px;
         height: 3px;
-        background-color: var(--base-strong-down);
+        background-color: #2c2c2c;
         border-radius: 50%;
         animation: blink 2000ms ease-in;
       }
@@ -27,7 +27,7 @@
         display: block;
         width: 3px;
         height: 3px;
-        background-color: var(--base-strong-down);
+        background-color: #2c2c2c;
         border-radius: 50%;
         animation: blink 2000ms ease-in;
       }
@@ -41,7 +41,7 @@
         height: 11px;
         width: 22px;
         margin: 0 auto;
-        border-bottom: 2px solid var(--base-strong-down);
+        border-bottom: 2px solid #2c2c2c;
         border-radius: 100%;
         transform: rotate(-90deg);
         animation: mouthFadeIn__1gp1m 200ms ease-in;
@@ -69,7 +69,7 @@
   font-weight: 700;
   line-height: 1;
   vertical-align: middle;
-  color: var(--base-strong-down);
+  color: #2c2c2c;
   background-color: var(--success-weak);
   transition: transform 200ms ease-out;
 }
