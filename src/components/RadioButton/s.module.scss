@@ -6,7 +6,7 @@
     vertical-align: middle;
 
     border-radius: 50%;
-    border: 1px solid var(--faint-weak-up);
+    border: 1px solid var(--radio-border);
     transition: 80ms all ease-out;
 
     outline: none;
@@ -16,7 +16,7 @@
 
     &:enabled {
       &:hover {
-        border-color: var(--faint-strong);
+        border-color: var(--radio-border-hover);
       }
 
       &:checked {

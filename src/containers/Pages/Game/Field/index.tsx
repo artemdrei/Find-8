@@ -77,12 +77,15 @@ const Field: React.FC<IProps> = (props) => {
     }
   };
 
+  const isInsanity = level === 'insanity';
+  const insanityClassName = isInsanity ? s.insanity : '';
+
   return (
     <>
-      <If condition={level === 'insanity'}>
+      <If condition={isInsanity}>
         <MatrixRain />
       </If>
-      <div onClick={handleClick} className={[s.field, fadeIn].join(' ')}>
+      <div onClick={handleClick} className={[s.field, fadeIn, insanityClassName].join(' ')}>
         {matrix.map((row, i) => {
           return (
             <div className={s.row} key={'row' + i}>

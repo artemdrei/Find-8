@@ -44,11 +44,7 @@ const MatrixRain = () => {
     setInterval(draw, 33);
   }, []);
 
-  return (
-    <div>
-      <canvas className={s.matrixRain} id="matrixCanvas"></canvas>
-    </div>
-  );
+  return <canvas className={s.matrixRain} id="matrixCanvas"></canvas>;
 };
 
 export default MatrixRain;
