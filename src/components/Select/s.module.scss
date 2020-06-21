@@ -1,3 +1,7 @@
+@mixin arrow() {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='gray'/></g></svg>");
+}
+
 .label {
   font-size: 0;
 }
@@ -15,7 +19,7 @@
   border: none;
   background-color: var(--accent-strong);
   border: 1px solid var(--accent-strong);
-  color: var(--base-weak);
+  color: var(--font);
   outline: none;
 
   // Replace arrow
@@ -23,10 +27,10 @@
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
   background-position: right 8px top 58%;
   background-repeat: no-repeat;
   background-size: 16px;
+  @include arrow();
 
   &:hover:enabled {
     background-color: var(--accent-strong-up);
@@ -43,8 +47,7 @@
 
 .outline {
   background-color: transparent;
-  border-color: var(--base-weak);
-  color: var(--font);
+  border-color: var(--select-border);
 }
 
 .arrow {
