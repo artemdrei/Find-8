@@ -3,6 +3,7 @@ $headerHeight: 80px;
 :global {
   #isMobile {
     margin: 0;
+    padding: 0;
     border: none;
     box-shadow: none;
     overflow: hidden;
@@ -12,6 +13,12 @@ $headerHeight: 80px;
       width: 100%;
       margin-top: $headerHeight;
       padding: 0 12px;
+    }
+
+    [class^='select'] {
+      background-color: var(--accent-strong);
+      color: #fff;
+      padding-top: 4px;
     }
   }
 }

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import Switcher from '@root/components/Switcher';
 
+import s from './s.module.scss';
+
 const Theme = () => {
   const [theme, setTheme] = useState('');
 
@@ -25,7 +27,16 @@ const Theme = () => {
     html.setAttribute('data-theme', theme);
   };
 
-  return <Switcher onChange={handleChange} isChecked={theme === 'light'} />;
+  const isChecked = theme === 'light';
+  const checkedClassName = isChecked ? s.checked : '';
+
+  return (
+    <Switcher
+      className={[s.theme, checkedClassName].join(' ')}
+      isChecked={isChecked}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Theme;
