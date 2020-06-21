@@ -8,7 +8,7 @@ const labels = {
     nextLevel: 'Наступний рівень',
     retry: 'Знову цей',
     play: 'Грати',
-    showAnswer: 'Показати відповідь',
+    showAnswer: 'Відповідь',
     back: 'Назад',
   },
   tutorial: {

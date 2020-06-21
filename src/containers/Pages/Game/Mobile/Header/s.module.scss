@@ -18,7 +18,6 @@ $headerHeight: 80px;
     [class^='select'] {
       background-color: var(--accent-strong);
       color: #fff;
-      padding-top: 4px;
     }
   }
 }
@@ -70,6 +69,7 @@ $headerHeight: 80px;
       background-position: right 13px top 58%;
       border: none;
       border-left: 1px solid #fff;
+      padding-top: 4px;
     }
   }
 
