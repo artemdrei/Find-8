@@ -49,6 +49,18 @@ $headerHeight: 80px;
   }
 }
 
+.settings {
+  width: 30px;
+  margin-left: 16px;
+  line-height: 0;
+
+  svg {
+    path {
+      fill: var(--font);
+    }
+  }
+}
+
 @media screen and (max-width: 500px) {
   .header {
     [class^='select'] {
@@ -56,6 +68,14 @@ $headerHeight: 80px;
       width: 40px;
       padding: 0;
       background-position: right 13px top 58%;
+      border: none;
+      border-left: 1px solid #fff;
+    }
+  }
+
+  [class^='logo'] {
+    [class^='find'] {
+      display: none;
     }
   }
 }
