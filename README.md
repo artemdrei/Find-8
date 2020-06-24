@@ -6,7 +6,7 @@
 
 ## Stack
 
-React, TypeScript, CSS. No dependencies.
+React, TypeScript, CSS. No extra dependencies.
 
 ## Quickstart
 
