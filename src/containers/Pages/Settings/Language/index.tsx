@@ -17,7 +17,6 @@ const Languages: React.FC<IProps> = ({ language, setLanguage }) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const langCode = e.target.value as TLanguages;
     const storage = getStorage();
-    console.log('storage:', storage);
     const updatedData = { ...storage, language: langCode };
     setStorage(updatedData);
 

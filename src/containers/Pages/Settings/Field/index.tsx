@@ -11,7 +11,6 @@ import { I18nContext } from '@root/i18n';
 
 const Field: React.FC<IProps> = ({ field, changeField }) => {
   const [value, changeValue] = useState('');
-  console.log('field:', field);
   const { labels } = useContext(I18nContext);
 
   useEffect(() => {
