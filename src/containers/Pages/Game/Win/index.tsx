@@ -5,7 +5,7 @@ import { IProps } from './types';
 
 import { CONFIG } from '@root/config';
 
-import { getRandomWord } from '@root/utils';
+import { getRandomWord, getStorage } from '@root/utils';
 import { getSeekDuration } from './utils/getSeekDuration';
 
 import Score from './Score';
@@ -17,10 +17,9 @@ import s from './styles.scss';
 
 const Congrats: React.FC<IProps> = ({ startTime, endTime, level, setLevel, setStartTime, setEndTime }) => {
   const { labels } = useContext(I18nContext);
-  const storage = localStorage.getItem('find8') || '{}';
-  const result = JSON.parse(storage);
+  const storage = getStorage();
   const { time } = getSeekDuration(startTime, endTime);
-  const bestResult = getSeekDuration(result[level].startTime, result[level].endTime);
+  const bestResult = getSeekDuration(storage[level].startTime, storage[level].endTime);
   const hasBeatRecord = time === bestResult.time;
   const title = hasBeatRecord ? labels.win.newRecord : getRandomWord(labels.win.title);
 

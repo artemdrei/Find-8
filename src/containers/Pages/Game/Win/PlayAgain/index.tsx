@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { IProps } from './types';
 import { TScore } from '@root/typings';
 
+import { getStorage } from '@root/utils';
+
 import Button from '@root/components/Button';
 import If from '@root/components/If';
 
@@ -12,9 +14,8 @@ import s from './styles.scss';
 
 const PlayAgain: React.FC<IProps> = ({ handleNextLevel, handleRetry, level }) => {
   const { labels } = useContext(I18nContext);
-  const storage = localStorage.getItem('find8') || '{}';
-  const score: TScore = JSON.parse(storage);
-  const hasInsanityLevel = level === 'insanity' && !!score?.insanity;
+  const storage: TScore = getStorage();
+  const hasInsanityLevel = level === 'insanity' && !!storage?.insanity;
 
   return (
     <>

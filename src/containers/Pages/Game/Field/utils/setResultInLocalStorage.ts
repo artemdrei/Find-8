@@ -1,4 +1,5 @@
 import { TLevel } from '@root/typings';
+import { getStorage } from '@root/utils';
 
 /**
  *
@@ -7,32 +8,31 @@ import { TLevel } from '@root/typings';
 
 // TODO:: refactoring later
 export const setResultInLocalStorage = (level: TLevel, startTime: number, endTime: number) => {
-  const storage = localStorage.getItem('find8') || '{}';
-  const score = JSON.parse(storage) || {};
+  const storage = getStorage();
   const seekDuration = endTime - startTime;
 
-  if (!score) {
+  if (!storage) {
     const result = {
-      ...score,
+      ...storage,
       [level]: { startTime, endTime, seekDuration },
     };
 
     localStorage.setItem('find8', JSON.stringify(result));
-  } else if (score) {
-    if (score[level]) {
-      const isTheBestResult = seekDuration < score[level].seekDuration;
+  } else if (storage) {
+    if (storage[level]) {
+      const isTheBestResult = seekDuration < storage[level].seekDuration;
 
       // Update the best result
       if (isTheBestResult) {
         const result = {
-          ...score,
+          ...storage,
           [level]: { startTime, endTime, seekDuration },
         };
         localStorage.setItem('find8', JSON.stringify(result));
       }
     } else {
       const result = {
-        ...score,
+        ...storage,
         [level]: { startTime, endTime, seekDuration },
       };
       localStorage.setItem('find8', JSON.stringify(result));

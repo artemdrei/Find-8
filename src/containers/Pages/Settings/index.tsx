@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { TLanguages } from '@root/i18n/context/types';
+import { IProps } from './types';
+
+import { getStorage } from '@root/utils';
 
 import Header from './Header';
 import Row from './Row';
 import Avatar from './Avatar';
 import Language from './Language';
-
-import { IProps } from './types';
 
 import s from './styles.scss';
 
@@ -20,8 +21,7 @@ const Settings: React.FC<IProps> = ({ field, changeField }) => {
   const { labels } = useContext(I18nContext);
 
   useEffect(() => {
-    const storage = localStorage.getItem('find8') || '{}';
-    const langCode = JSON.parse(storage)['language'] || 'en';
+    const langCode = getStorage('language') || 'en';
     setLanguage(langCode);
   }, []);
 

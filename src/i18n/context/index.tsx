@@ -4,15 +4,16 @@ import en from '../en';
 import ua from '../ua';
 
 import { TLanguages } from './types';
+import { getStorage } from '@root/utils';
 
 export const translations = { en, ua };
 const getTranslate = (langCode: TLanguages) => translations[langCode];
 
-const storage = localStorage.getItem('find8') || '{}';
-const lang = JSON.parse(storage)?.language || 'en';
+const langCode = getStorage('languCodeage') || 'en';
+
 const initialState = {
-  langCode: lang,
-  labels: getTranslate(lang),
+  langCode,
+  labels: getTranslate(langCode),
 };
 
 export const I18nContext = React.createContext({

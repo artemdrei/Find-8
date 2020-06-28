@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { TField } from '@root/typings';
-
 import { CONFIG } from '@root/config';
-import { mobileCheck } from '@root/utils';
+import { mobileCheck, getStorage } from '@root/utils';
 
 import Game from '@root/containers/Pages/Game';
 import Settings from '@root/containers/Pages/Settings';
@@ -18,18 +16,16 @@ const App = () => {
   const [field, changeField] = useState<any>({ defaultValue, seekedValue, cellSize });
 
   useEffect(() => {
-    const storage = localStorage.getItem('find8') || '{}';
-    const theme = JSON.parse(storage).theme;
+    const theme = getStorage('theme');
     const html = document.documentElement;
 
     html.setAttribute('data-theme', theme);
   }, []);
 
   useEffect(() => {
-    const storage = localStorage.getItem('find8') || '{}';
-    const field = JSON.parse(storage).field;
-    const defaultValue = field.defaultValue || CONFIG.field.defaultValue;
-    const seekedValue = field.seekedValue || CONFIG.field.seekedValue;
+    const field = getStorage('field');
+    const defaultValue = field?.defaultValue || CONFIG.field.defaultValue;
+    const seekedValue = field?.seekedValue || CONFIG.field.seekedValue;
     const cellSize = CONFIG.field.cellSize;
 
     changeField({ defaultValue, seekedValue, cellSize });
