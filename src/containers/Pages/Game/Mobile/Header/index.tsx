@@ -24,6 +24,7 @@ const MobileHeader: React.FC<IProps> = (props) => {
         />
         <Select level={level} setLevel={setLevel} setStartTime={setStartTime} setEndTime={setEndTime} />
         <Link to="/settings" className={s.settings}>
+          Settings
           <GearIcon className={s.gearIcon} />
         </Link>
       </div>
