@@ -16,12 +16,12 @@ import { setResultInLocalStorage } from './utils/setResultInLocalStorage';
 import s from './styles.scss';
 
 const Field: React.FC<IProps> = (props) => {
-  const { level, startTime, endTime, setEndTime } = props;
+  const { field, level, startTime, endTime, setEndTime } = props;
   const [fadeIn, setFadeIn] = useState(s.fadeIn);
   const [matrix, setMatrix] = useState<TMatrix>([]);
   const { rows, columns } = CONFIG.levels[level];
 
-  const { defaultValue, seekedValue, cellSize } = CONFIG.field;
+  const { defaultValue, seekedValue, cellSize } = field;
   const [height, width] = useFieldSize();
 
   useEffect(() => {

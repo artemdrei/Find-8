@@ -3,6 +3,7 @@ const labels = {
     or: 'чи',
     click: 'Тисни',
     levels: 'Рівень',
+    from: 'из',
   },
   buttons: {
     nextLevel: 'Наступний рівень',
@@ -36,7 +37,7 @@ const labels = {
     settings: 'Налаштування',
     language: 'Мова',
     theme: 'Тема',
-    backDescription: 'до гри',
+    fieldContent: 'Контент',
     avatar: {
       alt: 'Рандомна аватарка',
     },

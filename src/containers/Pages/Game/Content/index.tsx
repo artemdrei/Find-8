@@ -10,7 +10,7 @@ import If from '@root/components/If';
 import s from './styles.scss';
 
 const Content: React.FC<IProps> = (props) => {
-  const { level, startTime, endTime, setLevel, setStartTime, setEndTime } = props;
+  const { level, startTime, endTime, field, setLevel, setStartTime, setEndTime } = props;
   const notStarted = startTime === 0;
   const isFinished = endTime > 0;
   const isGiveUp = startTime === endTime;
@@ -38,7 +38,7 @@ const Content: React.FC<IProps> = (props) => {
 
       {/* Matrix field */}
       <If condition={!isFinished || isGiveUp}>
-        <Field level={level} startTime={startTime} endTime={endTime} setEndTime={setEndTime} />
+        <Field field={field} level={level} startTime={startTime} endTime={endTime} setEndTime={setEndTime} />
       </If>
     </div>
   );

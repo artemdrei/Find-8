@@ -7,12 +7,15 @@ import Row from './Row';
 import Avatar from './Avatar';
 import Language from './Language';
 
+import { IProps } from './types';
+
 import s from './styles.scss';
 
 import { I18nContext } from '@root/i18n';
 import Theme from './Theme';
+import Field from './Field';
 
-const Settings = () => {
+const Settings: React.FC<IProps> = ({ field, changeField }) => {
   const [language, setLanguage] = useState<TLanguages>('en');
   const { labels } = useContext(I18nContext);
 
@@ -32,6 +35,10 @@ const Settings = () => {
           right={<Language language={language} setLanguage={setLanguage} />}
         />
         <Row left={<h4 className={s.title}>{labels.settings.theme}</h4>} right={<Theme />} />
+        <Row
+          left={<h4 className={s.title}>{labels.settings.fieldContent}</h4>}
+          right={<Field field={field} changeField={changeField} />}
+        />
       </div>
     </div>
   );

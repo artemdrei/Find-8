@@ -1,8 +1,9 @@
-import { TLevel } from '@root/typings';
+import { TLevel, TField } from '@root/typings';
 
 export type TMatrix = number[][];
 
 export interface IProps {
+  field: TField;
   level: TLevel;
   endTime: number;
   startTime: number;

@@ -13,14 +13,14 @@
   "browserslist": "> 1%, not dead",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artemdrei/Webpack.git"
+    "url": "git+https://github.com/artemdrei/Find-8"
   },
   "author": "Drei Artem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/artemdrei/Webpack/issues"
+    "url": "https://github.com/artemdrei/Find-8/issues"
   },
-  "homepage": "https://github.com/artemdrei/Webpack#readme",
+  "homepage": "https://github.com/artemdrei/Find-8#readme",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.10.1",

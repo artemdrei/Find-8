@@ -4,6 +4,7 @@ const labels = {
     click: 'Click',
     levels: 'Levels',
     settings: 'Settings',
+    from: 'from',
   },
   buttons: {
     nextLevel: 'Next Level',
@@ -37,7 +38,7 @@ const labels = {
     settings: 'Settings',
     language: 'Language',
     theme: 'Theme',
-    backDescription: 'to the game',
+    fieldContent: 'Field Content',
     avatar: {
       alt: 'Random avatar',
     },

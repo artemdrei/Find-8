@@ -14,7 +14,6 @@ const Header = () => {
       <Link to="/game" className={[btnS.btn, btnS.primary, btnS.outline, s.backBtn].join(' ')}>
         {labels.buttons.back}
       </Link>
-      {labels.settings.backDescription}
     </header>
   );
 };
