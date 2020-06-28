@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 
 import { IProps } from './types';
+import { TLanguages } from '@root/i18n/context/types';
+
+import { getStorage, setStorage } from '@root/utils';
 
 import Select from '@root/components/Select';
 
 import { I18nContext, translations } from '@root/i18n';
-import { TLanguages } from '@root/i18n/context/types';
-import { getStorage } from '@root/utils';
 
 const Languages: React.FC<IProps> = ({ language, setLanguage }) => {
   // @ts-ignore
@@ -16,8 +17,9 @@ const Languages: React.FC<IProps> = ({ language, setLanguage }) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const langCode = e.target.value as TLanguages;
     const storage = getStorage();
+    console.log('storage:', storage);
     const updatedData = { ...storage, language: langCode };
-    localStorage.setItem('find8', JSON.stringify(updatedData));
+    setStorage(updatedData);
 
     setLanguage(langCode);
     dispatch({ type: 'SET_LANGUAGE', payload: langCode });

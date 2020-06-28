@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { IProps } from './types';
 import { data } from './data';
 
-import { getStorage } from '@root/utils';
+import { getStorage, setStorage } from '@root/utils';
 
 import Select from '@root/components/Select';
 
@@ -26,7 +26,7 @@ const Field: React.FC<IProps> = ({ field, changeField }) => {
 
     const storage = getStorage();
     const updatedData = { ...storage, field: { ...storage.field, defaultValue, seekedValue } };
-    localStorage.setItem('find8', JSON.stringify(updatedData));
+    setStorage(updatedData);
 
     changeField((prev) => ({ ...prev, defaultValue, seekedValue }));
   };

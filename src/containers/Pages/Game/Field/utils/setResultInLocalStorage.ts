@@ -1,5 +1,5 @@
 import { TLevel } from '@root/typings';
-import { getStorage } from '@root/utils';
+import { getStorage, setStorage } from '@root/utils';
 
 /**
  *
@@ -17,7 +17,7 @@ export const setResultInLocalStorage = (level: TLevel, startTime: number, endTim
       [level]: { startTime, endTime, seekDuration },
     };
 
-    localStorage.setItem('find8', JSON.stringify(result));
+    setStorage(result);
   } else if (storage) {
     if (storage[level]) {
       const isTheBestResult = seekDuration < storage[level].seekDuration;
@@ -28,14 +28,14 @@ export const setResultInLocalStorage = (level: TLevel, startTime: number, endTim
           ...storage,
           [level]: { startTime, endTime, seekDuration },
         };
-        localStorage.setItem('find8', JSON.stringify(result));
+        setStorage(result);
       }
     } else {
       const result = {
         ...storage,
         [level]: { startTime, endTime, seekDuration },
       };
-      localStorage.setItem('find8', JSON.stringify(result));
+      setStorage(result);
     }
   }
 };

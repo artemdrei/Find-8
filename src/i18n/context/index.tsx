@@ -9,7 +9,7 @@ import { getStorage } from '@root/utils';
 export const translations = { en, ua };
 const getTranslate = (langCode: TLanguages) => translations[langCode];
 
-const langCode = getStorage('languCodeage') || 'en';
+const langCode = getStorage('language') || 'en';
 
 const initialState = {
   langCode,

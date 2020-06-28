@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getStorage } from '@root/utils';
+import { getStorage, setStorage } from '@root/utils';
 
 import Switcher from '@root/components/Switcher';
 
@@ -24,7 +24,7 @@ const Theme = () => {
     const updatedData = { ...storage, theme };
 
     setTheme(theme);
-    localStorage.setItem('find8', JSON.stringify(updatedData));
+    setStorage(updatedData);
     html.setAttribute('data-theme', theme);
   };
 
