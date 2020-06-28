@@ -58,13 +58,13 @@
   padding: 0 4px;
   font-size: 1rem;
   color: var(--accent-strong);
-  border-radius: 0;
+  border-radius: 4px;
   background-color: transparent;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
 
   &:hover:enabled {
     color: var(--accent-strong-up);
-    border-bottom: 2px solid var(--accent-weak-up);
+    border: 2px solid var(--accent-strong);
   }
 
   &:active:enabled {
