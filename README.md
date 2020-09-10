@@ -1,5 +1,7 @@
 # Find 8
 
+ [Live Demo](https://artemdrei.github.io/Find-8/#/game)
+
 **Find 8** — is a simple browser game, where you should find **8** as quick as possible.
 
 ![Find 8](./src/assets/images/find8-preview.png)
