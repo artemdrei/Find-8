@@ -1,9 +1,14 @@
 import React from 'react';
 
-import { IProps } from './types';
+import s from './s.module.scss';
+import UserIcon from '@root/assets/icons/user.svg';
 
-const Avatar: React.FC<IProps> = ({ alt, className }) => {
-  return <img src="/src/assets/images/avatar.jpeg" className={className} alt={alt} />;
+const Avatar: React.FC = () => {
+  return (
+    <div className={s.avatar}>
+      <UserIcon className={s.icon} />
+    </div>
+  );
 };
 
 export default Avatar;
