@@ -18,11 +18,8 @@ const App = () => {
   useEffect(() => {
     const theme = getStorage('theme');
     const html = document.documentElement;
-
     html.setAttribute('data-theme', theme);
-  }, []);
 
-  useEffect(() => {
     const field = getStorage('field');
     const defaultValue = field?.defaultValue || CONFIG.field.defaultValue;
     const seekedValue = field?.seekedValue || CONFIG.field.seekedValue;
